@@ -66,6 +66,14 @@ class PresentazioneTest {
             val settle = Scripts.diceSettle(20, 17)
             write("04_dadi_d20", still + shake + settle + hold(settle.last().frame, 1.5))
         }
+        // DADI: il d6 (per alternarlo al d20 nella landing)
+        run {
+            val t = DiceArt.Tumbler()
+            val still = hold(DiceArt.idle(6), 1.5)
+            val shake = List(24) { i -> Step(55, DiceArt.tumble(6, t.next()), sound = if (Rng.random.nextDouble() < 0.4) Sfx.DADI_CLIC else null) }
+            val settle = Scripts.diceSettle(6, 4)
+            write("04_dadi_d6", still + shake + settle + hold(settle.last().frame, 1.5))
+        }
         // GALLERIA dei simboli (per foto)
         File(dir, "05_simboli.txt").writeText(
             File(dir, "icone.txt").readLines().joinToString("\n") { l -> l.substringBefore("\t") + "\t-\t" + l.substringAfter("\t") })
