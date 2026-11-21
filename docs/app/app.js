@@ -25,8 +25,8 @@ const WEB = {
     sounds: 'Suoni', on: 'Attivi', off: 'Spenti',
     soundsHelp: 'Vapore, fuoco e dadi. Meglio con le cuffie.',
     install: 'Installala come app',
-    installBody: 'iPhone e iPad: in Safari tocca Condividi, poi «Aggiungi alla schermata Home». Android: menu ⋮, poi «Installa app». ' +
-      'Computer: in Chrome o Edge, l’icona di installazione nella barra degli indirizzi; su Mac anche Safari, File › Aggiungi al Dock. Una volta installata funziona anche senza rete.',
+    installSteps: [['iPhone e iPad', 'in Safari tocca Condividi, poi «Aggiungi alla schermata Home».'], ['Android', 'menu ⋮, poi «Installa app».'],
+      ['Computer', 'in Chrome o Edge, l’icona di installazione nella barra degli indirizzi; su Mac anche Safari, File › Aggiungi al Dock.']], installNote: 'Una volta installata funziona anche senza rete.',
     android: 'Su Android',
     androidBody: 'L’app per Android ha anche i widget, e su Nothing Phone (3) i tre strumenti vivono sul retro, sulla Glyph Matrix.',
     androidLink: 'Scarica l’app',
@@ -42,8 +42,8 @@ const WEB = {
     sounds: 'Sounds', on: 'On', off: 'Off',
     soundsHelp: 'Steam, fire and dice. Best with headphones.',
     install: 'Install it as an app',
-    installBody: 'iPhone and iPad: in Safari tap Share, then “Add to Home Screen”. Android: menu ⋮, then “Install app”. ' +
-      'Computer: in Chrome or Edge, the install icon in the address bar; on a Mac, also Safari, File › Add to Dock. Once installed it works offline too.',
+    installSteps: [['iPhone and iPad', 'in Safari tap Share, then “Add to Home Screen”.'], ['Android', 'menu ⋮, then “Install app”.'],
+      ['Computer', 'in Chrome or Edge, the install icon in the address bar; on a Mac, also Safari, File › Add to Dock.']], installNote: 'Once installed it works offline too.',
     android: 'On Android',
     androidBody: 'The Android app also has widgets, and on Nothing Phone (3) the three tools live on the back, on the Glyph Matrix.',
     androidLink: 'Get the app',
@@ -300,7 +300,7 @@ function renderSettings() {
   h += `<div class="label muted">${esc(t.language)}</div>` + chips([['auto', w.auto], ['it', 'Italiano'], ['en', 'English']], lang, 'lang');
   h += `<div class="sect label muted">${esc(w.sounds)}</div>` + chips([['1', w.on], ['0', w.off]], Sound.on ? '1' : '0', 'snd');
   h += `<p class="muted">${esc(w.soundsHelp)}</p>`;
-  h += `<div class="sect label muted">${esc(w.install)}</div><p>${esc(w.installBody)}</p>`;
+  h += `<div class="sect label muted">${esc(w.install)}</div>` + w.installSteps.map(([d, t]) => `<div class="rule"><span><b>${esc(d)}</b>: ${esc(t)}</span></div>`).join('') + `<p class="muted">${esc(w.installNote)}</p>`;
   h += `<div class="sect label muted">${esc(w.android)}</div><p>${esc(w.androidBody)}</p>`;
   h += `<div class="chips"><a class="chip label" href="${LANDING}" target="_blank" rel="noopener">${esc(w.androidLink)} ↗</a></div>`;
   h += `<div class="sep"></div><div class="label muted">${esc(w.credits)}</div><div style="height:10px"></div>`;
