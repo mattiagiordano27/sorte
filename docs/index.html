@@ -139,7 +139,7 @@
         <a class="pill solid" href="https://mattiagiordano27.github.io/sorte/app/" data-en="Open in browser" data-it="Apri nel browser">Open in browser</a>
       </div>
     </div>
-    <img class="matrix" src="media/closed_en.gif" data-gif="closed" alt="The Closed Oracle on the Glyph Matrix">
+    <img class="matrix" src="media/closed_en.gif?v=2" data-gif="closed" alt="The Closed Oracle on the Glyph Matrix">
   </div>
 
   <section id="closed">
@@ -154,7 +154,7 @@
            data-it="Il «ma» arriva dopo un respiro. Un omaggio alla Pizia di Delfi, che rispondeva sopra i vapori che salivano dalla terra.">
           The “but” arrives after a breath. A nod to the Pythia of Delphi, who answered above the vapours rising from the earth.</p>
       </div>
-      <img class="anim" src="media/closed_en.gif" data-gif="closed" alt="">
+      <img class="anim" src="media/closed_en.gif?v=2" data-gif="closed" alt="">
     </div>
   </section>
 
@@ -170,7 +170,7 @@
            data-it="Il fuoco come energia che genera e distrugge: quello che resta dopo l'incendio può essere una svolta, o una ferita.">
           Fire as an energy that creates and destroys: what survives the blaze may be a turning point, or a wound.</p>
       </div>
-      <img class="anim" src="media/open.gif" alt="">
+      <img class="anim" src="media/open.gif?v=2" alt="">
     </div>
   </section>
 
@@ -186,7 +186,7 @@
            data-it="Il suono di dadi di resina sul feltro. Il massimo accende il contorno; l'1 lascia la sagoma vuota.">
           Sounds of resin dice on felt. The highest roll lights up its edge; a 1 leaves the shape hollow.</p>
       </div>
-      <img class="anim" src="media/dice.gif" alt="">
+      <img class="anim" src="media/dice.gif?v=2" alt="">
     </div>
   </section>
 
@@ -330,7 +330,7 @@
     ["bicchiere","the glass","il bicchiere"],["presa_elettrica","the power socket","la presa elettrica"],["chiave","the key","la chiave"]];
   const grid=document.getElementById('deckgrid');
   SYM.forEach(([f,en,it])=>{ const fig=document.createElement('figure');
-    fig.innerHTML=`<img src="media/sym_${f}.png" alt="${en}" loading="lazy"><figcaption data-en="${en}" data-it="${it}">${en}</figcaption>`;
+    fig.innerHTML=`<img src="media/sym_${f}.png?v=2" alt="${en}" loading="lazy"><figcaption data-en="${en}" data-it="${it}">${en}</figcaption>`;
     grid.appendChild(fig); });
 
   // lingua: inglese di serie, italiano col pulsante IT (ricordato su questo browser)
@@ -340,7 +340,7 @@
     document.querySelectorAll('[data-lang]').forEach(b=>b.classList.toggle('on',b.dataset.lang===l));
     document.getElementById('news-en').hidden=l!=='en'; document.getElementById('news-it').hidden=l!=='it';
     // le risposte sulla matrice nella lingua della pagina
-    document.querySelectorAll('[data-gif]').forEach(i=>{ i.src='media/'+i.dataset.gif+'_'+l+'.gif'; });
+    document.querySelectorAll('[data-gif]').forEach(i=>{ i.src='media/'+i.dataset.gif+'_'+l+'.gif?v=2'; });
     try{ localStorage.setItem('sorte-lang',l); }catch(e){}
   }
   document.querySelectorAll('[data-lang]').forEach(b=>b.onclick=()=>setLang(b.dataset.lang));
