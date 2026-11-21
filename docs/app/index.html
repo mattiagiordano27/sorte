@@ -54,23 +54,24 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .label{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase}
 
 /* ── GIOCA ── */
-#play{position:fixed;top:0;left:0;right:0;height:var(--H);display:grid;grid-template-rows:auto 1fr auto;
+#play{position:fixed;top:0;left:0;right:0;height:var(--H);display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto 1fr auto;overflow:hidden;
   padding:calc(var(--pad)*.8 + env(safe-area-inset-top)) calc(var(--pad) + env(safe-area-inset-right)) calc(var(--pad)*.8 + env(safe-area-inset-bottom)) calc(var(--pad) + env(safe-area-inset-left))}
-header{display:flex;align-items:center;gap:10px}
+header{display:flex;align-items:center;gap:10px;min-width:0}
 header .t{flex:1;min-width:0}
 header h1{margin:0;font-size:46px;line-height:48px}
 header .tag{font-size:9px;color:var(--muted);margin-top:2px}
 .round{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-size:16px;flex:none}
 .round:hover{border-color:var(--muted)}
 .mid{display:contents}
-main{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:0}
+main{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:0;min-width:0}
 #matrix{display:block;border-radius:50%;background:#000;cursor:pointer;touch-action:manipulation;
-  width:var(--m);height:var(--m);--m:min(86vw,calc(var(--H)*0.58),560px)}
+  width:var(--m);height:var(--m)}
+#play{--m:min(86vw,calc(var(--H)*0.58),560px)}
 #hint{color:var(--muted);text-align:center;margin-top:clamp(22px,calc(var(--H)*0.04),40px);min-height:15px;padding:0 8px}
-#dice{height:64px;margin-top:clamp(12px,calc(var(--H)*0.024),22px);display:flex;align-items:center;justify-content:space-between;gap:6px;
-  width:min(100%,var(--m) + 40px);visibility:hidden}
+#dice{height:64px;max-width:100%;margin-top:clamp(12px,calc(var(--H)*0.024),22px);display:flex;align-items:center;justify-content:space-between;gap:6px;
+  width:min(100%,calc(var(--m) + 40px));visibility:hidden}
 #dice.on{visibility:visible}
-.die{width:48px;height:48px;border-radius:50%;border:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;flex:none}
+.die{flex:none;width:min(48px,calc((100% - 36px) / 7));aspect-ratio:1;border-radius:50%;border:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center}
 .die small{font-family:var(--mono);font-size:8px;letter-spacing:1.5px;color:var(--muted);line-height:1}
 .die b{font-family:var(--mono);font-size:15px;letter-spacing:1px;line-height:1.2}
 .die b.long{font-size:12.5px;letter-spacing:0}
@@ -83,15 +84,17 @@ nav{display:flex;gap:8px;width:100%;max-width:560px;justify-self:center;margin-t
 
 /* orizzontale (computer, telefono girato): il tondo resta al centro, con aria intorno */
 @media (orientation:landscape){
-  #matrix{--m:min(calc(var(--H)*0.56),46vw,600px)}
+  #play{--m:min(calc(var(--H)*0.56),46vw,600px)}
   #hint{margin-top:clamp(16px,calc(var(--H)*0.034),36px)}
   #dice{margin-top:clamp(8px,calc(var(--H)*0.018),20px)}
 }
 /* telefono girato, poco spazio in altezza: matrice a sinistra, comandi a destra, come nell'app */
+@media (max-width:400px){ .die b{font-size:13px} .die b.long{font-size:11px} }
 @media (orientation:landscape) and (max-height:520px){
-  #play{grid-template-columns:auto 1fr;grid-template-rows:auto 1fr auto;column-gap:clamp(24px,5vw,48px)}
+  #play{grid-template-columns:auto minmax(0,1fr);grid-template-rows:auto 1fr auto;column-gap:clamp(20px,4vw,48px)}
   #play>main{display:contents}
-  #matrix{--m:calc(var(--H) - 2*var(--pad)*.8 - env(safe-area-inset-top) - env(safe-area-inset-bottom));grid-column:1;grid-row:1/4;align-self:center}
+  #play{--m:calc(var(--H) - 2*var(--pad)*.8 - env(safe-area-inset-top) - env(safe-area-inset-bottom))}
+  #matrix{grid-column:1;grid-row:1/4;align-self:center}
   header{grid-column:2;grid-row:1}
   .mid{grid-column:2;grid-row:2;display:flex;flex-direction:column;align-items:center;justify-content:center}
   nav{grid-column:2;grid-row:3;margin-top:0}
