@@ -1,6 +1,6 @@
-"""Immagini della landing e del README (docs/media/). Regola:
-- Glyph Toy (il retro del telefono): LED QUADRATI con alone → GIF closed_*, open, dice;
-- tutto il resto (app, web, mazzo): PUNTI TONDI come nella matrice dell'app → sym_*.png.
+"""Immagini della landing e del README. Regola:
+- landing (docs/media/): PUNTI TONDI come nella matrice dell'app → closed_en/it, open, dice, sym_*;
+- README su GitHub, sezione Glyph Toy: LED QUADRATI come il retro del telefono → docs/media/readme/glyph_*.gif.
 Uso: ./gradlew :app:testDebugUnitTest --tests '*PresentazioneTest*' && python3 tools/landing_media.py"""
 import os
 from PIL import Image, ImageDraw
@@ -63,10 +63,14 @@ def gif(names, path, size=400, min_ms=40, draw=None):
     imgs[0].save(path, save_all=True, append_images=imgs[1:], duration=[max(min_ms, int(d)) for d in od], loop=0, optimize=True)
     print(os.path.basename(path), len(imgs), "fotogrammi", os.path.getsize(path) // 1024, "KB")
 
-if "--tutto" in __import__("sys").argv: gif(["01_oracolo_chiuso_EN"], f"{OUT}/closed_en.gif", draw=render_square)
-if "--tutto" in __import__("sys").argv: gif(["01_oracolo_chiuso"], f"{OUT}/closed_it.gif", draw=render_square)
-if "--tutto" in __import__("sys").argv: gif(["03_oracolo_aperto"], f"{OUT}/open.gif", draw=render_square)
-gif(["04_dadi_d20", "04_dadi_d6"], f"{OUT}/dice.gif", draw=render_square)
+gif(["01_oracolo_chiuso_EN"], f"{OUT}/closed_en.gif")
+gif(["01_oracolo_chiuso"], f"{OUT}/closed_it.gif")
+gif(["03_oracolo_aperto"], f"{OUT}/open.gif")
+gif(["04_dadi_d20", "04_dadi_d6"], f"{OUT}/dice.gif")
+# README, sezione Glyph Toy: quadrati
+gif(["01_oracolo_chiuso_EN"], f"{OUT}/readme/glyph_closed.gif", draw=render_square, min_ms=80)
+gif(["03_oracolo_aperto"], f"{OUT}/readme/glyph_open.gif", draw=render_square, min_ms=80)
+gif(["04_dadi_d20", "04_dadi_d6"], f"{OUT}/readme/glyph_dice.gif", draw=render_square, min_ms=80)
 for line in open(f"{SRC}/05_simboli.txt"):
     n, _, data = line.rstrip("\n").split("\t")
     render([int(v) for v in data.split(",")], 240).save(f"{OUT}/sym_{n}.png", optimize=True)

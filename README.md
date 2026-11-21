@@ -23,9 +23,9 @@
 
 <table>
   <tr>
-    <td width="33%" align="center"><img src="docs/media/closed_en.gif" alt="The Closed Oracle on the Glyph Matrix" width="100%"></td>
-    <td width="33%" align="center"><img src="docs/media/open.gif" alt="The Open Oracle on the Glyph Matrix" width="100%"></td>
-    <td width="33%" align="center"><img src="docs/media/dice.gif" alt="The dice on the Glyph Matrix" width="100%"></td>
+    <td width="33%" align="center"><img src="docs/media/readme/glyph_closed.gif" alt="The Closed Oracle on the Glyph Matrix" width="100%"></td>
+    <td width="33%" align="center"><img src="docs/media/readme/glyph_open.gif" alt="The Open Oracle on the Glyph Matrix" width="100%"></td>
+    <td width="33%" align="center"><img src="docs/media/readme/glyph_dice.gif" alt="The dice on the Glyph Matrix" width="100%"></td>
   </tr>
   <tr>
     <td valign="top"><sub>GLYPH TOY · 01</sub><br><b>Closed Oracle</b><br>Ask a yes or no question. A small cloud falls onto hot stones and rises as steam, leaving the answer behind: no, no but, meh, yes but, yes.</td>
