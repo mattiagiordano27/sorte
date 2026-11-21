@@ -1,0 +1,72 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Editor icone</title>
+<style>
+:root{--bg:#000;--fg:#f2f2f2;--muted:#8a8a8a;--line:#2a2a2a;--red:#d71921}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:ui-monospace,Menlo,monospace;margin:0;padding:24px 16px}
+h1{font-size:13px;letter-spacing:3px;color:var(--red);font-weight:400;margin:0 0 4px}
+p{color:var(--muted);font-size:12px;line-height:1.6;margin:0 0 20px;max-width:720px}
+.wrap{display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start}
+.list{display:grid;grid-template-columns:repeat(3,96px);gap:10px}
+.thumb{border:1px solid var(--line);border-radius:14px;padding:8px;cursor:pointer;text-align:center;font-size:10px;letter-spacing:1px;color:var(--muted)}
+.thumb.on{border-color:var(--fg);color:var(--fg)}
+.thumb canvas{width:78px;height:78px;display:block;margin:0 auto 6px}
+#ed{width:min(560px,92vw);height:min(560px,92vw);touch-action:none;cursor:crosshair;display:block}
+.bar{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;align-items:center}
+.chip{border:1px solid var(--line);border-radius:99px;padding:8px 14px;font-size:11px;letter-spacing:2px;cursor:pointer;background:none;color:var(--fg);font-family:inherit}
+.chip.on{background:var(--fg);color:#000;border-color:var(--fg)}
+.save{background:var(--red);border-color:var(--red);color:#fff}
+input{background:none;border:1px solid var(--line);border-radius:99px;color:var(--fg);padding:8px 14px;font:inherit;font-size:12px;width:200px}
+.name{font-size:20px;letter-spacing:2px;margin-bottom:10px}
+</style></head><body>
+<h1>EDITOR · ICONE DELL'ORACOLO APERTO</h1>
+<p>Scegli un'icona a sinistra. Clic o trascina sulla matrice per disegnare. Tre luci: pieno, tenue (per sfumature), spento.
+"Salva PNG" scarica il file in Download con lo stesso nome: rimettilo in <b>app/src/main/assets/icone/</b> (o dimmelo e lo faccio io).
+I punti fuori dal cerchio non si vedono sulla Glyph Matrix.</p>
+<div class="wrap">
+  <div class="list" id="list"></div>
+  <div>
+    <div class="name" id="nm">—</div>
+    <canvas id="ed" width="750" height="750"></canvas>
+    <div class="bar">
+      <button class="chip on" data-v="255">PIENO</button>
+      <button class="chip" data-v="110">TENUE</button>
+      <button class="chip" data-v="0">GOMMA</button>
+      <span style="width:12px"></span>
+      <button class="chip" id="clr">SVUOTA</button>
+      <button class="chip" id="undo">ANNULLA</button>
+      <button class="chip save" id="save">SALVA PNG</button>
+    </div>
+    <div class="bar"><input id="newname" placeholder="nome nuova icona"><button class="chip" id="new">NUOVA</button></div>
+  </div>
+</div>
+<script>
+const N=25, inC=(x,y)=>(x-12)**2+(y-12)**2<=156;
+const ICONS={"bicchiere": "iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAAAAADhgtq/AAAANklEQVR4nGNgGLyAEcH8j8ZHlYCSIMCEKoEkxQJXwwgxDYsMA5oVTKjcISKDAOihQ0yIDhQAAPDAChaceNirAAAAAElFTkSuQmCC", "chiave": "iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAYElEQVRIS+2SQQoAIAgE9f+PNjaIokO4geLBuXVp3VEVEZNgtEMY6uky2zeiivl8uJsg4Pz4fr+oFQLCdZ0hXk0Lty6QFoIWzNJB3SYsdZuk7GQq6MVHQV3XLx1CkaJrAMgYTwEEb+tWAAAAAElFTkSuQmCC", "finestra": "iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAcklEQVRIS+2S0QrAIAhF9f8/2riMIGQ0r621oPOiTx29piJiMhk9Eob1cZldf0IVs+TpbgIJBLVmCUl8z0JJQEZESdBnNqIlvo/wD0nLJ5u07BfXXUR7Ht5Pjwqm3QQwj1dCEvYGnkcJGBGAruQtjoSiADNEiAFxWQlvAAAAAElFTkSuQmCC", "lucchetto": "iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAAAAADhgtq/AAAANklEQVR4nGNgGF6AEZnzH40PB/+hGAKYGIgB/1F4TDjVMaJrweaE/6gmMuE0DbcMC063DU0AAE5sCAmh+urkAAAAAElFTkSuQmCC", "nuvole": "iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAmElEQVRIS+2RUQqAQAhE9f6H3vBD2IYcJzCI6H2Vq77VdTNb9jD+S+4gr2utc5p7lGq0kmyOTSOOsQoq6Rp15wmVBLgmZEQywbskuDZlTYk8CT4y/jMkSdUwp7s626EStUl1iaSVsOKky6OSIKdhMEHQSia4JVHfCJEl+97xO2DiVlI1wfguRqiEFSIst5WoVIKASqb4juQABOlnARfEUrYAAAAASUVORK5CYII=", "palma": "iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAnklEQVRIS+2TSw6AIAxE6f0PjZlFYzOZUhRNjOFtRD7zWoPWWuvtZewTkt7PRs1Q03XSTjw8BmOO351RAVISw1jma0qYiYYSlvEYT8B7GSkB6pAS8ViRShQeVoUypQSBEZdEKuFQMltxtW9K4pV7UOzE129LQAyIUhYuSSKZZCQAy5IZtmR/rhz1L6i5jPJ2Vde1WgdTkoplyRP8R3IAgsy4AcWYifMAAAAASUVORK5CYII=", "porta": "iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAWUlEQVRIS+3SSwoAIAgEUL3/oQ0XhhQNfaHFvF0ITQ2qiJg8pgxZ8U9dZng3VP2tY1M/8ZDRRWgWGFKxrg6qBM3C1nb5OXsSkqFZYEjFujrtyraubNcphiwpBoNzAbRGf8UAAAAASUVORK5CYII=", "presa_elettrica": "iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAiklEQVRIS+2SSwqAMAwFm/sfuhLwQR37Mdq66myaD8lg0FJKOS3GtiTCPleIy7lynvc3m/nqM6akbL6Fe5qS2leVg71+SMKlT3P2POpK+ArWa7NiKBGRnD2PuhK+gvXarBhKRCRnz6OuhK9gvTYrhhIRydnzqCkhXErCki9wz00yi6ZkFVsS4pdzHY7s0wFAd7YhAAAAAElFTkSuQmCC", "recinto": "iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAdElEQVRIS+2Q4QqAQAiD9f0f2pBayPDqjKIIvz93irI5FRGTh9EWqdBxlXg3LjMTVfewwjXgPtdOegkGR2917hsiu5vNmbuMwDnX05dchfcPRdihE3tONlcW4aXsP3rBUARgKRJFAM+ditxNi5TouEr8J64Fx5OdAaFpSaQAAAAASUVORK5CYII=", "scatola": "iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAgklEQVRIS+2QQQ7AIAgE4f+PptmDiSGgi7aNB+ckmuy4qIiYfIxeSYUz12Vmooq/8ZSaNEFVREt8sJ9HUJKsgZ8zphIfNJsjKAmIgqO3CErSAjPRa5L+HN2NKEmYOeJ8CdMCbDXxbxlTCYiCWQGgJKAPB6wA0BKwIgAlySpXUuKXdT2nFpEBpTHGVQAAAABJRU5ErkJggg==", "sedia": "iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAbklEQVRIS+2SMQ7AIAwDk/8/mipDJIbGNgKWNrfG+CQLN7Nhl/GWrNBzLSHPNcZ7zD0qMJIkBFUZuiVUopSwjCRR2JaggoBlfiZhoKkCOBfbOu8sV0qUX5XFWxL0cL6zbEvoRDNH5mKUkpN8R/IAYdB2ARJ+vSkAAAAASUVORK5CYII=", "stella": "iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAgUlEQVRIS+2QQQ7AIAgE4f+PpuFAYsiKi7aXxjkp6A5BRcTkY/RKOtx1tdhel5mJqn9fsyUJAStqS8bgVyQekhlDUd/J4lLisNOGEL1dSpxKVIUHlMRBIlRDUJIcNt5zD9GWxBnVZrQkOWxWz9ASBwVVvYCWVCErKMkpV9LiP+t6AMBTagE/nCmDAAAAAElFTkSuQmCC"};
+const data={}; let cur=null, val=255, hist=[];
+const ed=document.getElementById('ed'), g=ed.getContext('2d');
+function load(name,b64){ return new Promise(r=>{ const im=new Image(); im.onload=()=>{ const c=document.createElement('canvas'); c.width=N;c.height=N;
+  const x=c.getContext('2d'); x.drawImage(im,0,0,N,N); const d=x.getImageData(0,0,N,N).data; const a=new Uint8Array(N*N);
+  for(let i=0;i<N*N;i++) a[i]=Math.round((d[i*4]*0.299+d[i*4+1]*0.587+d[i*4+2]*0.114)*d[i*4+3]/255); data[name]=a; r(); }; im.src='data:image/png;base64,'+b64; }); }
+function paint(cv,a,cell,gap){ const x=cv.getContext('2d'); x.fillStyle='#000'; x.fillRect(0,0,cv.width,cv.height);
+  for(let y=0;y<N;y++)for(let i=0;i<N;i++){ if(!inC(i,y))continue; const v=a[y*N+i]; const l=Math.round(28+v*227/255); x.fillStyle=`rgb(${l},${l},${l})`; x.fillRect(i*cell+gap,y*cell+gap,cell-2*gap,cell-2*gap);} }
+function thumbs(){ const L=document.getElementById('list'); L.innerHTML='';
+  Object.keys(data).sort().forEach(n=>{ const t=document.createElement('div'); t.className='thumb'+(n===cur?' on':''); const c=document.createElement('canvas'); c.width=100;c.height=100;
+    paint(c,data[n],4,0.5); t.appendChild(c); t.appendChild(document.createTextNode(n.replace('_',' '))); t.onclick=()=>select(n); L.appendChild(t); }); }
+function draw(){ if(cur) paint(ed,data[cur],30,2); }
+function select(n){ cur=n; hist=[]; document.getElementById('nm').textContent=n.replace('_',' '); draw(); thumbs(); }
+let down=false;
+function at(e){ const r=ed.getBoundingClientRect(); const x=Math.floor((e.clientX-r.left)/r.width*N), y=Math.floor((e.clientY-r.top)/r.height*N); return [x,y]; }
+function set(e){ const [x,y]=at(e); if(x<0||y<0||x>=N||y>=N||!inC(x,y)) return; const a=data[cur]; if(a[y*N+x]!==val){ a[y*N+x]=val; draw(); } }
+ed.addEventListener('pointerdown',e=>{ if(!cur)return; hist.push(new Uint8Array(data[cur])); down=true; ed.setPointerCapture(e.pointerId); set(e); });
+ed.addEventListener('pointermove',e=>{ if(down) set(e); });
+ed.addEventListener('pointerup',()=>{ down=false; thumbs(); });
+document.querySelectorAll('[data-v]').forEach(b=>b.onclick=()=>{ val=+b.dataset.v; document.querySelectorAll('[data-v]').forEach(c=>c.classList.remove('on')); b.classList.add('on'); });
+document.getElementById('clr').onclick=()=>{ if(!cur)return; hist.push(new Uint8Array(data[cur])); data[cur].fill(0); draw(); thumbs(); };
+document.getElementById('undo').onclick=()=>{ if(hist.length){ data[cur]=hist.pop(); draw(); thumbs(); } };
+document.getElementById('new').onclick=()=>{ const n=document.getElementById('newname').value.trim().toLowerCase().replace(/\s+/g,'_'); if(!n)return; data[n]=new Uint8Array(N*N); select(n); };
+document.getElementById('save').onclick=()=>{ if(!cur)return; const c=document.createElement('canvas'); c.width=N;c.height=N; const x=c.getContext('2d'); const im=x.createImageData(N,N);
+  for(let i=0;i<N*N;i++){ const v=data[cur][i]; im.data[i*4]=v;im.data[i*4+1]=v;im.data[i*4+2]=v;im.data[i*4+3]=255; } x.putImageData(im,0,0);
+  const a=document.createElement('a'); a.download=cur+'.png'; a.href=c.toDataURL('image/png'); a.click(); };
+Promise.all(Object.entries(ICONS).map(([n,b])=>load(n,b))).then(()=>{ const first=Object.keys(data).sort()[0]; select(first); });
+</script></body></html>

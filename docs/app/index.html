@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Sorte — oracle in your browser</title>
+<meta name="description" content="Sorte in your browser: a closed oracle made of steam, an open oracle made of fire, and dice. For iPhone, iPad and any computer. By Mattia Giordano.">
+<meta name="author" content="Mattia Giordano">
+<link rel="canonical" href="https://mattiagiordano27.github.io/sorte/app/">
+<meta property="og:site_name" content="Sorte">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sorte — oracle in your browser">
+<meta property="og:description" content="An oracle for creative writing, divination and role-playing. Steam, fire and dice, on iPhone, iPad and any computer. Free, works offline.">
+<meta property="og:image" content="https://mattiagiordano27.github.io/sorte/media/og_app.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Sorte: a dotted circle with the answer YES">
+<meta property="og:url" content="https://mattiagiordano27.github.io/sorte/app/">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="it_IT">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sorte — oracle in your browser">
+<meta name="twitter:description" content="Steam, fire and dice, on iPhone, iPad and any computer. Free, works offline.">
+<meta name="twitter:image" content="https://mattiagiordano27.github.io/sorte/media/og_app.png">
+<meta name="theme-color" content="#000000">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Sorte">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Sorte", "url": "https://mattiagiordano27.github.io/sorte/app/", "description": "An oracle for creative writing, divination and role-playing: a closed oracle made of steam, an open oracle made of fire, and dice.", "applicationCategory": "GameApplication", "operatingSystem": "Any (web browser): iPhone, iPad, Mac, Windows, Linux", "inLanguage": ["en", "it"], "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}, "author": {"@type": "Person", "name": "Mattia Giordano"}, "image": "https://mattiagiordano27.github.io/sorte/media/og_app.png", "softwareVersion": "0.27", "sameAs": ["https://mattiagiordano27.github.io/sorte/"]}</script>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<style>
+@font-face{font-family:Doto;src:url(font/doto.ttf) format("truetype");font-weight:100 900;font-display:block}
+:root{
+  --bg:#000;--text:#f2f2f2;--muted:#8a8a8a;--line:#2a2a2a;
+  --pad:clamp(20px,5vw,64px);
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  --serif:Georgia,"Times New Roman",serif;
+  --H:100vh;
+}
+@supports (height:100dvh){:root{--H:100dvh}}
+:root:not([data-theme="dark"]){color-scheme:dark}
+@media (prefers-color-scheme:light){
+  :root:not([data-theme="dark"]){--bg:#f2f2f2;--text:#0a0a0a;--muted:#6e6e6e;--line:#d8d8d8;color-scheme:light}
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--text);font-family:var(--sans)}
+body{overflow:hidden;overscroll-behavior:none;-webkit-user-select:none;user-select:none}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+.dot{font-family:Doto,var(--mono);font-variation-settings:"wght" 800,"ROND" 100;font-weight:800}
+.label{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase}
+
+/* ── GIOCA ── */
+#play{position:fixed;top:0;left:0;right:0;height:var(--H);display:grid;grid-template-rows:auto 1fr auto;
+  padding:calc(var(--pad)*.8 + env(safe-area-inset-top)) calc(var(--pad) + env(safe-area-inset-right)) calc(var(--pad)*.8 + env(safe-area-inset-bottom)) calc(var(--pad) + env(safe-area-inset-left))}
+header{display:flex;align-items:center;gap:10px}
+header .t{flex:1;min-width:0}
+header h1{margin:0;font-size:46px;line-height:48px}
+header .tag{font-size:9px;color:var(--muted);margin-top:2px}
+.round{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-size:16px;flex:none}
+.round:hover{border-color:var(--muted)}
+.mid{display:contents}
+main{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:0}
+#matrix{display:block;border-radius:50%;background:#000;cursor:pointer;touch-action:manipulation;
+  width:var(--m);height:var(--m);--m:min(86vw,calc(var(--H)*0.58),560px)}
+#hint{color:var(--muted);text-align:center;margin-top:clamp(22px,calc(var(--H)*0.04),40px);min-height:15px;padding:0 8px}
+#dice{height:64px;margin-top:clamp(12px,calc(var(--H)*0.024),22px);display:flex;align-items:center;justify-content:space-between;gap:6px;
+  width:min(100%,var(--m) + 40px);visibility:hidden}
+#dice.on{visibility:visible}
+.die{width:48px;height:48px;border-radius:50%;border:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;flex:none}
+.die small{font-family:var(--mono);font-size:8px;letter-spacing:1.5px;color:var(--muted);line-height:1}
+.die b{font-family:var(--mono);font-size:15px;letter-spacing:1px;line-height:1.2}
+.die b.long{font-size:12.5px;letter-spacing:0}
+.die.sel{background:var(--text);border-color:var(--text);color:var(--bg)}
+.die.sel small{color:var(--bg)}
+nav{display:flex;gap:8px;width:100%;max-width:560px;justify-self:center;margin-top:clamp(16px,calc(var(--H)*0.03),36px)}
+.tab{flex:1;border-radius:99px;border:1px solid var(--line);padding:14px 0;text-align:center}
+.tab.sel{background:var(--text);color:var(--bg);border-color:var(--text)}
+.tab:not(.sel):hover,.die:not(.sel):hover{border-color:var(--muted)}
+
+/* orizzontale (computer, telefono girato): il tondo resta al centro, con aria intorno */
+@media (orientation:landscape){
+  #matrix{--m:min(calc(var(--H)*0.56),46vw,600px)}
+  #hint{margin-top:clamp(16px,calc(var(--H)*0.034),36px)}
+  #dice{margin-top:clamp(8px,calc(var(--H)*0.018),20px)}
+}
+/* telefono girato, poco spazio in altezza: matrice a sinistra, comandi a destra, come nell'app */
+@media (orientation:landscape) and (max-height:520px){
+  #play{grid-template-columns:auto 1fr;grid-template-rows:auto 1fr auto;column-gap:clamp(24px,5vw,48px)}
+  #play>main{display:contents}
+  #matrix{--m:calc(var(--H) - 2*var(--pad)*.8 - env(safe-area-inset-top) - env(safe-area-inset-bottom));grid-column:1;grid-row:1/4;align-self:center}
+  header{grid-column:2;grid-row:1}
+  .mid{grid-column:2;grid-row:2;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  nav{grid-column:2;grid-row:3;margin-top:0}
+  #dice{width:100%;max-width:440px}
+}
+
+/* ── PAGINE (manuale, impostazioni) ── */
+.page{position:fixed;inset:0;overflow-y:auto;background:var(--bg);display:none;-webkit-user-select:text;user-select:text;
+  padding:calc(var(--pad)*.8 + env(safe-area-inset-top)) calc(var(--pad) + env(safe-area-inset-right)) calc(56px + env(safe-area-inset-bottom)) calc(var(--pad) + env(safe-area-inset-left))}
+.page.on{display:block}
+.page .in{max-width:640px;margin:0 auto}
+.bar{display:flex;align-items:center;gap:14px;color:var(--muted)}
+.page h2{font-size:30px;line-height:34px;margin:24px 0 18px;font-weight:800}
+.chapter{margin-top:40px}
+.chapter .num{font-size:18px;color:var(--muted)}
+.chapter h3{font-size:30px;line-height:34px;margin:0;font-weight:800}
+.page p,.rule{font-size:15px;line-height:22px;margin:0 0 12px}
+.page .muted{color:var(--muted)}
+.head{margin:26px 0 12px}
+.row{border:1px solid var(--line);border-radius:14px;padding:14px;margin:0 0 12px}
+.ans{font-family:var(--mono);font-size:13px;letter-spacing:1px;font-weight:700;margin-bottom:4px}
+.row p{color:var(--muted);margin:0}
+.ex{border-left:2px solid var(--line);padding:2px 0 2px 14px;margin:4px 0 16px;font-family:var(--serif);font-size:15px;line-height:22px}
+.ex .q{color:var(--muted);margin-bottom:6px}
+.ex .r{font-family:var(--mono);font-size:13px;letter-spacing:1px;font-weight:700;margin-bottom:6px}
+.rule{display:flex;gap:12px}
+.rule:before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--muted);margin-top:8px}
+.symbols{display:grid;grid-template-columns:repeat(3,1fr);gap:18px 12px;margin:12px 0 20px}
+.symbols div{text-align:center}
+.symbols canvas{width:100%;aspect-ratio:1;border-radius:50%;background:#000;display:block}
+.symbols span{display:block;margin-top:6px;font-size:10px;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chip{border-radius:99px;border:1px solid var(--line);padding:9px 14px}
+.chip.sel{background:var(--text);color:var(--bg);border-color:var(--text)}
+.sep{height:1px;background:var(--line);margin:36px 0 16px}
+.sect{margin-top:36px}
+a{color:inherit}
+
+/* ── INGRESSO: un tocco sblocca l'audio ── */
+#enter{position:fixed;inset:0;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;cursor:pointer;z-index:10;transition:opacity .5s}
+#enter.out{opacity:0;pointer-events:none}
+#enter h1{margin:0;font-size:64px;line-height:1}
+#enter .label{color:var(--muted);text-align:center;line-height:1.9}
+</style>
+</head>
+<body>
+
+<div id="enter">
+  <h1 class="dot">Sorte</h1>
+  <div class="label" id="enterText"></div>
+</div>
+
+<div id="play">
+  <header>
+    <div class="t">
+      <h1 class="dot" id="title">Sorte</h1>
+      <div class="tag label" id="tagline"></div>
+    </div>
+    <button class="round" id="btnManual" aria-label="Manual">?</button>
+    <button class="round" id="btnSettings" aria-label="Settings">···</button>
+  </header>
+  <main>
+    <canvas id="matrix" width="900" height="900"></canvas>
+    <div class="mid">
+      <div id="hint" class="label"></div>
+      <div id="dice"></div>
+    </div>
+  </main>
+  <nav id="tabs"></nav>
+</div>
+
+<section class="page" id="manual"><div class="in"></div></section>
+<section class="page" id="settings"><div class="in"></div></section>
+
+<script src="engine.js"></script>
+<script src="testi.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

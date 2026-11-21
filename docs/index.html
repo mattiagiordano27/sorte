@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sorte — an oracle for creative writing, divination and role-playing</title>
+<meta name="description" content="A closed oracle made of steam, an open oracle made of fire, and dice. Glyph Toys for Nothing Phone (3), an app for Android, and a web version for iPhone, iPad and any computer. By Mattia Giordano.">
+<meta property="og:title" content="Sorte">
+<meta property="og:description" content="An oracle for creative writing, divination and role-playing.">
+<meta property="og:image" content="https://mattiagiordano27.github.io/sorte/media/og.png">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="500">
+<meta property="og:image:alt" content="Sorte, a dotted key: an oracle for creative writing, divination and role-playing">
+<meta property="og:site_name" content="Sorte">
+<meta property="og:url" content="https://mattiagiordano27.github.io/sorte/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sorte">
+<meta name="twitter:description" content="An oracle for creative writing, divination and role-playing. Nothing Phone (3), Android, and the web.">
+<meta name="twitter:image" content="https://mattiagiordano27.github.io/sorte/media/og.png">
+<link rel="canonical" href="https://mattiagiordano27.github.io/sorte/">
+<meta name="author" content="Mattia Giordano">
+<meta name="keywords" content="Sorte, oracle, Nothing Phone 3, Glyph Toys, Glyph Matrix, divination, creative writing, solo role-playing, TTRPG, dice, web app, iPhone, Mattia Giordano, oracolo">
+<link rel="icon" href="media/icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Sorte", "url": "https://mattiagiordano27.github.io/sorte/", "description": "An oracle for creative writing, divination and role-playing. Glyph Toys for Nothing Phone (3), an app for Android, and a web version for iPhone, iPad and any computer.", "applicationCategory": "GameApplication", "operatingSystem": "Android 10+, web browser", "inLanguage": ["en", "it"], "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}, "author": {"@type": "Person", "name": "Mattia Giordano"}, "image": "https://mattiagiordano27.github.io/sorte/media/og.png", "softwareVersion": "0.27", "downloadUrl": "https://github.com/mattiagiordano27/sorte/releases/latest", "installUrl": "https://mattiagiordano27.github.io/sorte/app/", "license": "https://opensource.org/licenses/MIT", "sameAs": ["https://github.com/mattiagiordano27/sorte", "https://mattiagiordano27.github.io/sorte/app/"]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Doto:ROND,wght@100,900&family=Geist:wght@300;400;500&family=Geist+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#000; --card:#111; --card-2:#1a1a1a; --line:#262626;
+    --text:#f2f2f2; --muted:#8a8a8a; --dim:#555;
+    --radius:28px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:"Geist",system-ui,sans-serif;font-weight:300;
+       -webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+  .dot{font-family:"Doto",monospace;font-weight:900;font-variation-settings:"ROND" 100;letter-spacing:.02em}
+  .mono{font-family:"Geist Mono",ui-monospace,monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+  /* barra in alto */
+  header{position:sticky;top:0;z-index:10;background:rgba(0,0,0,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  header .wrap{display:flex;align-items:center;gap:14px;height:64px}
+  header img{width:28px;height:28px;border-radius:50%}
+  header .brand{font-size:26px;flex:1}
+  .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;padding:10px 18px;
+        font-family:"Geist Mono",monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;
+        color:var(--text);background:transparent;cursor:pointer;white-space:nowrap;transition:border-color .2s,background .2s}
+  .pill:hover{border-color:var(--muted)}
+  .pill.solid{background:var(--text);color:#000;border-color:var(--text)}
+  .lang{display:flex;gap:6px}
+  .lang .pill{padding:8px 12px}
+  .lang .pill.on{background:var(--text);color:#000;border-color:var(--text)}
+
+  /* apertura */
+  .hero{padding:72px 0 40px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+  .hero h1{font-size:clamp(72px,13vw,148px);line-height:.9;margin:14px 0 18px}
+  .hero p.lead{font-size:clamp(20px,2.4vw,26px);line-height:1.35;color:var(--text);margin:0 0 28px;max-width:30ch}
+  .hero .matrix{width:100%;max-width:440px;justify-self:center;border-radius:50%}
+  .pills{display:flex;flex-wrap:wrap;gap:10px}
+
+  /* schede delle funzioni */
+  section{padding:28px 0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:36px;
+        display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center}
+  .card + .card{margin-top:16px}
+  .card h2{font-size:clamp(40px,5.6vw,64px);line-height:1;margin:12px 0 16px}
+  .card p{font-size:18px;line-height:1.55;color:var(--muted);margin:0 0 12px;max-width:44ch}
+  .card img.shot{width:100%;border-radius:18px;border:1px solid var(--line);justify-self:center}
+  .card img.anim{width:100%;max-width:400px;border-radius:50%;justify-self:center}
+  .card.flip > :first-child{order:2}
+
+  /* il mazzo */
+  .deck{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:24px}
+  .deck figure{margin:0;text-align:center}
+  .deck img{width:100%;border-radius:50%}
+  .deck figcaption{font-family:"Geist Mono",monospace;font-size:11px;color:var(--muted);margin-top:8px}
+
+  /* novità */
+  .news h3{font-weight:500;font-size:18px;margin:26px 0 10px}
+  .news ul{list-style:none;padding:0;margin:0}
+  .news li{font-size:17px;line-height:1.5;padding:6px 0;color:var(--text)}
+  .news li span{display:inline-block;width:30px}
+
+  /* installazione */
+  #install h3.group{font-size:20px;font-weight:500;margin:34px 0 0;color:var(--text)}
+  .steps{counter-reset:s;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+  .steps div{background:var(--card-2);border-radius:20px;padding:22px;font-size:16px;line-height:1.5;color:var(--muted)}
+  .steps div::before{counter-increment:s;content:counter(s,decimal-leading-zero);display:block;font-family:"Doto",monospace;
+                     font-weight:900;font-size:34px;color:var(--text);margin-bottom:10px}
+
+  footer{padding:56px 0 80px;color:var(--dim);font-size:14px;line-height:1.7;border-top:1px solid var(--line);margin-top:40px}
+
+  @media (max-width:820px){
+    .hero{grid-template-columns:1fr;padding-top:40px}
+    .hero .matrix{max-width:320px;order:-1}
+    .card{grid-template-columns:1fr;padding:26px}
+    .card.flip > :first-child{order:0}
+    .deck{grid-template-columns:repeat(3,1fr)}
+    .steps{grid-template-columns:1fr}
+    header .dl{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <img src="media/icon.png" alt="">
+    <span class="brand dot">Sorte</span>
+    <div class="lang"><button class="pill on" data-lang="en">EN</button><button class="pill" data-lang="it">IT</button></div>
+    <a class="pill solid dl" href="https://github.com/mattiagiordano27/sorte/releases/latest" data-en="Download" data-it="Scarica">Download</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="hero">
+    <div>
+      <div class="mono" data-en="Glyph Toys · Version 0.27" data-it="Glyph Toy · Versione 0.27">Glyph Toys · Version 0.27</div>
+      <h1 class="dot">Sorte</h1>
+      <p class="lead" data-en="An oracle for creative writing, divination and role-playing. Three tools, one small light on your phone."
+         data-it="Un oracolo per scrittura creativa, divinazione e gioco di ruolo. Tre strumenti, una piccola luce sul telefono.">
+        An oracle for creative writing, divination and role-playing. Three tools, one small light on your phone.</p>
+      <div class="pills">
+        <a class="pill" href="#closed" data-en="Closed Oracle" data-it="Oracolo chiuso">Closed Oracle</a>
+        <a class="pill" href="#open" data-en="Open Oracle" data-it="Oracolo aperto">Open Oracle</a>
+        <a class="pill" href="#dice" data-en="Dice" data-it="Dadi">Dice</a>
+        <a class="pill" href="#deck" data-en="The deck" data-it="Il mazzo">The deck</a>
+        <a class="pill" href="#widgets" data-en="Widgets" data-it="Widget">Widgets</a>
+        <a class="pill" href="#features" data-en="All features" data-it="Tutte le funzioni">All features</a>
+        <a class="pill" href="#install" data-en="Any Android 10+" data-it="Ogni Android 10+">Any Android 10+</a>
+        <a class="pill" href="#web" data-en="iPhone · iPad · any computer" data-it="iPhone · iPad · ogni computer">iPhone · iPad · any computer</a>
+        <a class="pill solid" href="https://github.com/mattiagiordano27/sorte/releases/latest" data-en="Download free" data-it="Scarica gratis">Download free</a>
+        <a class="pill solid" href="https://mattiagiordano27.github.io/sorte/app/" data-en="Open in browser" data-it="Apri nel browser">Open in browser</a>
+      </div>
+    </div>
+    <img class="matrix" src="media/closed_en.gif" data-gif="closed" alt="The Closed Oracle on the Glyph Matrix">
+  </div>
+
+  <section id="closed">
+    <div class="card">
+      <div>
+        <div class="mono">Glyph Toy · 01</div>
+        <h2 class="dot" data-en="Closed Oracle" data-it="Oracolo chiuso">Closed Oracle</h2>
+        <p data-en="Ask a yes or no question. A small cloud falls onto hot stones and rises as steam, leaving the answer behind: no, no but, meh, yes but, yes."
+           data-it="Fai una domanda sì o no. Una piccola nuvola cade sulle pietre calde e risale come vapore, lasciando la risposta: no, no ma, mah, sì ma, sì.">
+          Ask a yes or no question. A small cloud falls onto hot stones and rises as steam, leaving the answer behind: no, no but, meh, yes but, yes.</p>
+        <p data-en="The “but” arrives after a breath. A nod to the Pythia of Delphi, who answered above the vapours rising from the earth."
+           data-it="Il «ma» arriva dopo un respiro. Un omaggio alla Pizia di Delfi, che rispondeva sopra i vapori che salivano dalla terra.">
+          The “but” arrives after a breath. A nod to the Pythia of Delphi, who answered above the vapours rising from the earth.</p>
+      </div>
+      <img class="anim" src="media/closed_en.gif" data-gif="closed" alt="">
+    </div>
+  </section>
+
+  <section id="open">
+    <div class="card flip">
+      <div>
+        <div class="mono">Glyph Toy · 02</div>
+        <h2 class="dot" data-en="Open Oracle" data-it="Oracolo aperto">Open Oracle</h2>
+        <p data-en="For questions without a yes or no. A little flame catches the paper; what the fire leaves behind is a symbol to read."
+           data-it="Per le domande che non hanno un sì o un no. Una fiammella brucia la carta; quello che il fuoco lascia è un simbolo da leggere.">
+          For questions without a yes or no. A little flame catches the paper; what the fire leaves behind is a symbol to read.</p>
+        <p data-en="Fire as an energy that creates and destroys: what survives the blaze may be a turning point, or a wound."
+           data-it="Il fuoco come energia che genera e distrugge: quello che resta dopo l'incendio può essere una svolta, o una ferita.">
+          Fire as an energy that creates and destroys: what survives the blaze may be a turning point, or a wound.</p>
+      </div>
+      <img class="anim" src="media/open.gif" alt="">
+    </div>
+  </section>
+
+  <section id="dice">
+    <div class="card">
+      <div>
+        <div class="mono">Glyph Toy · 03</div>
+        <h2 class="dot" data-en="Dice" data-it="Dadi">Dice</h2>
+        <p data-en="From d4 to d100, drawn as silhouettes. Turn the phone over and shake it like a dice cup; while charging, lift one edge and set it back down."
+           data-it="Dal d4 al d100, disegnati come sagome. Capovolgi il telefono e scuotilo come un bicchiere di dadi; in carica, sollevane un lato e riappoggialo.">
+          From d4 to d100, drawn as silhouettes. Turn the phone over and shake it like a dice cup; while charging, lift one edge and set it back down.</p>
+        <p data-en="Sounds of resin dice on felt. The highest roll lights up its edge; a 1 leaves the shape hollow."
+           data-it="Il suono di dadi di resina sul feltro. Il massimo accende il contorno; l'1 lascia la sagoma vuota.">
+          Sounds of resin dice on felt. The highest roll lights up its edge; a 1 leaves the shape hollow.</p>
+      </div>
+      <img class="anim" src="media/dice.gif" alt="">
+    </div>
+  </section>
+
+  <section id="deck">
+    <div class="card" style="display:block">
+      <div class="mono" data-en="Symbols" data-it="Simboli">Symbols</div>
+      <h2 class="dot" data-en="The deck" data-it="Il mazzo">The deck</h2>
+      <p style="max-width:68ch" data-en="The symbols come from the drawings of Mattia Giordano and from his personal oracle deck, which exists as a physical object. He draws in dots: images that vanish from afar and only reveal themselves up close. On the matrix, a drawn dot becomes a point of light."
+         data-it="I simboli vengono dai disegni di Mattia Giordano e dal suo mazzo oracolare personale, che esiste come oggetto fisico. Disegna a puntini: immagini che da lontano scompaiono e si rivelano solo da vicino. Sulla matrice, un punto disegnato diventa un punto acceso.">
+        The symbols come from the drawings of Mattia Giordano and from his personal oracle deck, which exists as a physical object. He draws in dots: images that vanish from afar and only reveal themselves up close. On the matrix, a drawn dot becomes a point of light.</p>
+      <div class="deck" id="deckgrid"></div>
+    </div>
+  </section>
+
+  <section id="widgets">
+    <div class="card" style="display:block">
+      <div class="mono" data-en="Android" data-it="Android">Android</div>
+      <h2 class="dot" data-en="Widgets" data-it="Widget">Widgets</h2>
+      <p style="max-width:68ch" data-en="Three round widgets for your Android home screen: tap to ask. Sorte works as a regular app on any Android 10+, with Glyph Toys on Nothing Phone (3) and always-on toys on Phone (4a) Pro."
+         data-it="Tre widget tondi per la schermata Home di Android: tocca e chiedi. Sorte funziona come app su ogni Android 10+, con i Glyph Toy su Nothing Phone (3) e toy always-on su Phone (4a) Pro.">
+        Three round widgets for your Android home screen: tap to ask. Sorte works as a regular app on any Android 10+, with Glyph Toys on Nothing Phone (3) and always-on toys on Phone (4a) Pro.</p>
+      <div class="pills" style="margin-top:18px">
+        <span class="pill" data-en="Nothing Phone (3) · Glyph Toys" data-it="Nothing Phone (3) · Glyph Toy">Nothing Phone (3) · Glyph Toys</span>
+        <span class="pill" data-en="Phone (4a) Pro · always-on" data-it="Phone (4a) Pro · always-on">Phone (4a) Pro · always-on</span>
+        <span class="pill" data-en="Android 10+ · app &amp; widgets" data-it="Android 10+ · app e widget">Android 10+ · app &amp; widgets</span>
+        <span class="pill" data-en="English · Italiano" data-it="Italiano · English">English · Italiano</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="web">
+    <div class="card">
+      <div>
+        <div class="mono" data-en="Everywhere else" data-it="Ovunque">Everywhere else</div>
+        <h2 class="dot" data-en="In your browser" data-it="Nel browser">In your browser</h2>
+        <p data-en="On iPhone, iPad and any computer, Mac, Windows or Linux, Sorte opens in the browser: the same three tools, the same animations and sounds. Tap or click the circle, or press the space bar. On iPhone you can also shake."
+           data-it="Su iPhone, iPad e qualsiasi computer, Mac, Windows o Linux, Sorte si apre nel browser: gli stessi tre strumenti, le stesse animazioni e gli stessi suoni. Tocca o clicca il tondo, oppure premi la barra spaziatrice. Su iPhone puoi anche scuotere.">
+          On iPhone, iPad and any computer, Mac, Windows or Linux, Sorte opens in the browser: the same three tools, the same animations and sounds. Tap or click the circle, or press the space bar. On iPhone you can also shake.</p>
+        <p data-en="Add it to your home screen: it opens full screen like an app and works offline too."
+           data-it="Aggiungila alla schermata Home: si apre a tutto schermo come un'app e funziona anche senza rete.">
+          Add it to your home screen: it opens full screen like an app and works offline too.</p>
+        <p style="margin-top:22px"><a class="pill solid" href="https://mattiagiordano27.github.io/sorte/app/" data-en="Open Sorte" data-it="Apri Sorte">Open Sorte</a></p>
+      </div>
+      <img class="shot" src="media/web.png" alt="Sorte in the browser on a computer" loading="lazy">
+    </div>
+  </section>
+  <section class="news" id="features">
+    <div class="card" style="display:block">
+      <div class="mono" data-en="Features · Version 0.27" data-it="Funzioni · Versione 0.27">Features · Version 0.27</div>
+      <h2 class="dot" data-en="Features" data-it="Funzioni">Features</h2>
+      <div id="news-en">
+        <h3>Glyph Toys</h3>
+        <ul>
+          <li><span>🌫️</span>Closed Oracle. Ask a yes or no question: a small cloud falls onto hot stones and rises as steam with the answer.</li>
+          <li><span>🔥</span>Open Oracle. A little flame burns the paper, and what the fire leaves behind is a symbol to read.</li>
+          <li><span>🎲</span>Dice. From d4 to d100, drawn as silhouettes that tumble and settle on felt.</li>
+        </ul>
+        <h3>Oracle Deck</h3>
+        <ul><li><span>🃏</span>Twelve symbols from Mattia Giordano's personal oracle deck, drawn in dots.</li></ul>
+        <h3>Interactions</h3>
+        <ul>
+          <li><span>🔘</span>Long press the Glyph Button to ask, or shake the phone face down.</li>
+          <li><span>🔌</span>While charging, lift one edge of the phone slightly and set it back down: the die falls.</li>
+          <li><span>⏳</span>The “but” arrives after a breath, so you never know straight away whether an answer is clean.</li>
+        </ul>
+        <h3>Widgets</h3>
+        <ul><li><span>⚪</span>Three round widgets for your home screen. Tap to ask; tap the edges of the dice widget to change die.</li></ul>
+        <h3>Everywhere</h3>
+        <ul>
+          <li><span>📱</span>A regular app on any Android 10+, in English and Italian.</li>
+          <li><span>🌐</span>A web version for iPhone, iPad and any computer. Add it to your home screen and it works offline.</li>
+          <li><span>✨</span>Always-on Glyph Toys for Phone (4a) Pro, used by shaking.</li>
+        </ul>
+      </div>
+      <div id="news-it" hidden>
+        <h3>Glyph Toy</h3>
+        <ul>
+          <li><span>🌫️</span>Oracolo chiuso. Fai una domanda sì o no: una piccola nuvola cade sulle pietre calde e risale come vapore con la risposta.</li>
+          <li><span>🔥</span>Oracolo aperto. Una fiammella brucia la carta, e quello che il fuoco lascia è un simbolo da leggere.</li>
+          <li><span>🎲</span>Dadi. Dal d4 al d100, disegnati come sagome che rotolano e si posano sul feltro.</li>
+        </ul>
+        <h3>Il mazzo</h3>
+        <ul><li><span>🃏</span>Dodici simboli dal mazzo oracolare personale di Mattia Giordano, disegnati a puntini.</li></ul>
+        <h3>Interazioni</h3>
+        <ul>
+          <li><span>🔘</span>Pressione lunga sul Glyph Button per chiedere, oppure scuoti il telefono a faccia in giù.</li>
+          <li><span>🔌</span>In carica, solleva leggermente un lato del telefono e riappoggialo: il dado cade.</li>
+          <li><span>⏳</span>Il «ma» arriva dopo un respiro: non sai subito se la risposta è netta.</li>
+        </ul>
+        <h3>Widget</h3>
+        <ul><li><span>⚪</span>Tre widget tondi per la schermata Home. Tocca e chiedi; nel widget dei dadi tocca i bordi per cambiare dado.</li></ul>
+        <h3>Ovunque</h3>
+        <ul>
+          <li><span>📱</span>App per ogni Android 10+, in italiano e in inglese.</li>
+          <li><span>🌐</span>Una versione web per iPhone, iPad e qualsiasi computer. Aggiungila alla schermata Home e funziona anche senza rete.</li>
+          <li><span>✨</span>Glyph Toy always-on per Phone (4a) Pro, che si usano scuotendo.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="install">
+    <div class="mono" data-en="Install" data-it="Installa">Install</div>
+    <h3 class="group" data-en="Android" data-it="Android">Android</h3>
+    <div class="steps">
+      <div data-en="Download Sorte-0.27.apk from the GitHub release page." data-it="Scarica Sorte-0.27.apk dalla pagina delle release su GitHub.">Download Sorte-0.27.apk from the GitHub release page.</div>
+      <div data-en="Open the file and allow your browser to install apps." data-it="Apri il file e consenti al browser di installare app.">Open the file and allow your browser to install apps.</div>
+      <div data-en="On Nothing Phone (3): open Sorte › ··· › Add to Glyph Toys." data-it="Su Nothing Phone (3): apri Sorte › ··· › Aggiungi ai Glyph Toys.">On Nothing Phone (3): open Sorte › ··· › Add to Glyph Toys.</div>
+    </div>
+    <p style="margin-top:22px"><a class="pill solid" href="https://github.com/mattiagiordano27/sorte/releases/latest" data-en="Download free" data-it="Scarica gratis">Download free</a></p>
+    <h3 class="group" data-en="iPhone, iPad and any computer" data-it="iPhone, iPad e qualsiasi computer">iPhone, iPad and any computer</h3>
+    <div class="steps">
+      <div data-en="Open mattiagiordano27.github.io/sorte/app in any browser." data-it="Apri mattiagiordano27.github.io/sorte/app in qualsiasi browser.">Open mattiagiordano27.github.io/sorte/app in any browser.</div>
+      <div data-en="Add it to your home screen. iPhone and iPad: Share › Add to Home Screen. Computer: the install icon in the address bar of Chrome or Edge; on a Mac, also Safari › File › Add to Dock."
+           data-it="Aggiungila alla schermata Home. iPhone e iPad: Condividi › Aggiungi alla schermata Home. Computer: l'icona di installazione nella barra degli indirizzi di Chrome o Edge; su Mac anche Safari › File › Aggiungi al Dock.">Add it to your home screen. iPhone and iPad: Share › Add to Home Screen. Computer: the install icon in the address bar of Chrome or Edge; on a Mac, also Safari › File › Add to Dock.</div>
+      <div data-en="Turn the sound on: steam, fire and dice are part of it. Once added, it works offline too."
+           data-it="Alza il volume: vapore, fuoco e dadi ne fanno parte. Una volta aggiunta, funziona anche senza rete.">Turn the sound on: steam, fire and dice are part of it. Once added, it works offline too.</div>
+    </div>
+    <p style="margin-top:22px"><a class="pill solid" href="https://mattiagiordano27.github.io/sorte/app/" data-en="Open in browser" data-it="Apri nel browser">Open in browser</a></p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="dot" style="font-size:28px;color:var(--text)">Sorte</div>
+    <div data-en="© 2026 Mattia Giordano — concept, symbols, drawings, texts and sounds (CC BY-NC-ND 4.0). Code: MIT, open source on GitHub."
+         data-it="© 2026 Mattia Giordano — ideazione, simboli, disegni, testi e suoni (CC BY-NC-ND 4.0). Codice: MIT, open source su GitHub.">
+      © 2026 Mattia Giordano — concept, symbols, drawings, texts and sounds (CC BY-NC-ND 4.0). Code: MIT, open source on GitHub.</div>
+    <div data-en="Independent app, not affiliated with Nothing. Doto font © The Doto Project Authors (OFL)."
+         data-it="App indipendente, non affiliata a Nothing. Font Doto © The Doto Project Authors (OFL).">
+      Independent app, not affiliated with Nothing. Doto font © The Doto Project Authors (OFL).</div>
+  </div>
+</footer>
+
+<script>
+  // il mazzo: dodici carte
+  const SYM=[["finestra","the window","la finestra"],["stella","the star","la stella"],["palma","the palm","la palma"],
+    ["porta","the door","la porta"],["lucchetto","the padlock","il lucchetto"],["recinto","the fence","il recinto"],
+    ["scatola","the box","la scatola"],["nuvole","the clouds","le nuvole"],["sedia","the chair","la sedia"],
+    ["bicchiere","the glass","il bicchiere"],["presa_elettrica","the power socket","la presa elettrica"],["chiave","the key","la chiave"]];
+  const grid=document.getElementById('deckgrid');
+  SYM.forEach(([f,en,it])=>{ const fig=document.createElement('figure');
+    fig.innerHTML=`<img src="media/sym_${f}.png" alt="${en}" loading="lazy"><figcaption data-en="${en}" data-it="${it}">${en}</figcaption>`;
+    grid.appendChild(fig); });
+
+  // lingua: inglese di serie, italiano col pulsante IT (ricordato su questo browser)
+  function setLang(l){
+    document.documentElement.lang=l;
+    document.querySelectorAll('[data-en]').forEach(e=>{ e.textContent=e.dataset[l]; });
+    document.querySelectorAll('[data-lang]').forEach(b=>b.classList.toggle('on',b.dataset.lang===l));
+    document.getElementById('news-en').hidden=l!=='en'; document.getElementById('news-it').hidden=l!=='it';
+    // le risposte sulla matrice nella lingua della pagina
+    document.querySelectorAll('[data-gif]').forEach(i=>{ i.src='media/'+i.dataset.gif+'_'+l+'.gif'; });
+    try{ localStorage.setItem('sorte-lang',l); }catch(e){}
+  }
+  document.querySelectorAll('[data-lang]').forEach(b=>b.onclick=()=>setLang(b.dataset.lang));
+  let saved=null; try{ saved=localStorage.getItem('sorte-lang'); }catch(e){}
+  setLang(saved || 'en');                       // inglese di serie
+</script>
+</body>
+</html>

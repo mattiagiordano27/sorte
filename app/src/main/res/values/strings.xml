@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Sorte</string>
+
+    <string name="toy_closed_name">Closed Oracle</string>
+    <string name="toy_closed_summary">Ask a yes/no question, long press for the answer</string>
+    <string name="toy_open_name">Open Oracle</string>
+    <string name="toy_open_summary">Draw a random symbol to interpret</string>
+    <string name="toy_dice_name">Dice</string>
+    <string name="toy_dice_summary">Shake face down to roll</string>
+    <string name="toy_pro_summary">Shake face down to use it</string>
+</resources>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- l'SDK Nothing dichiara minSdk 33: i servizi Glyph girano solo sui Nothing (Android 14+),
+         sugli altri telefoni l'app funziona da sola -->
+    <uses-sdk tools:overrideLibrary="com.nothing.thirdparty" />
+
+    <uses-permission android:name="com.nothing.ketchum.permission.ENABLE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Material.NoActionBar">
+
+        <meta-data android:name="NothingKey" android:value="test" />
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".toys.ClosedOracleToy"
+            android:exported="true"
+            tools:ignore="ExportedService">
+            <intent-filter><action android:name="com.nothing.glyph.TOY" /></intent-filter>
+            <meta-data android:name="com.nothing.glyph.toy.name" android:resource="@string/toy_closed_name" />
+            <meta-data android:name="com.nothing.glyph.toy.image" android:resource="@drawable/preview_closed" />
+            <meta-data android:name="com.nothing.glyph.toy.summary" android:resource="@string/toy_closed_summary" />
+            <meta-data android:name="com.nothing.glyph.toy.introduction" android:value="mattiagiordano.sorte.MainActivity" />
+            <meta-data android:name="com.nothing.glyph.toy.longpress" android:value="1" />
+        </service>
+
+        <service
+            android:name=".toys.OpenOracleToy"
+            android:exported="true"
+            tools:ignore="ExportedService">
+            <intent-filter><action android:name="com.nothing.glyph.TOY" /></intent-filter>
+            <meta-data android:name="com.nothing.glyph.toy.name" android:resource="@string/toy_open_name" />
+            <meta-data android:name="com.nothing.glyph.toy.image" android:resource="@drawable/preview_open" />
+            <meta-data android:name="com.nothing.glyph.toy.summary" android:resource="@string/toy_open_summary" />
+            <meta-data android:name="com.nothing.glyph.toy.introduction" android:value="mattiagiordano.sorte.MainActivity" />
+            <meta-data android:name="com.nothing.glyph.toy.longpress" android:value="1" />
+        </service>
+
+        <!-- SOLO Phone (4a) Pro (toy always-on, si usa scuotendo): spento di serie, l'app lo accende su quel telefono -->
+        <service
+            android:name=".toys.ProClosedOracleToy"
+            android:enabled="false"
+            android:exported="true"
+            tools:ignore="ExportedService">
+            <intent-filter><action android:name="com.nothing.glyph.TOY" /></intent-filter>
+            <meta-data android:name="com.nothing.glyph.toy.name" android:resource="@string/toy_closed_name" />
+            <meta-data android:name="com.nothing.glyph.toy.image" android:resource="@drawable/preview_closed" />
+            <meta-data android:name="com.nothing.glyph.toy.summary" android:resource="@string/toy_pro_summary" />
+            <meta-data android:name="com.nothing.glyph.toy.introduction" android:value="mattiagiordano.sorte.MainActivity" />
+            <meta-data android:name="com.nothing.glyph.toy.aod_support" android:value="1" />
+        </service>
+
+        <!-- SOLO Phone (4a) Pro (toy always-on, si usa scuotendo): spento di serie, l'app lo accende su quel telefono -->
+        <service
+            android:name=".toys.ProOpenOracleToy"
+            android:enabled="false"
+            android:exported="true"
+            tools:ignore="ExportedService">
+            <intent-filter><action android:name="com.nothing.glyph.TOY" /></intent-filter>
+            <meta-data android:name="com.nothing.glyph.toy.name" android:resource="@string/toy_open_name" />
+            <meta-data android:name="com.nothing.glyph.toy.image" android:resource="@drawable/preview_open" />
+            <meta-data android:name="com.nothing.glyph.toy.summary" android:resource="@string/toy_pro_summary" />
+            <meta-data android:name="com.nothing.glyph.toy.introduction" android:value="mattiagiordano.sorte.MainActivity" />
+            <meta-data android:name="com.nothing.glyph.toy.aod_support" android:value="1" />
+        </service>
+
+        <!-- SOLO Phone (4a) Pro (toy always-on, si usa scuotendo): spento di serie, l'app lo accende su quel telefono -->
+        <service
+            android:name=".toys.ProDiceToy"
+            android:enabled="false"
+            android:exported="true"
+            tools:ignore="ExportedService">
+            <intent-filter><action android:name="com.nothing.glyph.TOY" /></intent-filter>
+            <meta-data android:name="com.nothing.glyph.toy.name" android:resource="@string/toy_dice_name" />
+            <meta-data android:name="com.nothing.glyph.toy.image" android:resource="@drawable/preview_dice" />
+            <meta-data android:name="com.nothing.glyph.toy.summary" android:resource="@string/toy_pro_summary" />
+            <meta-data android:name="com.nothing.glyph.toy.introduction" android:value="mattiagiordano.sorte.MainActivity" />
+            <meta-data android:name="com.nothing.glyph.toy.aod_support" android:value="1" />
+        </service>
+
+
+        <service
+            android:name=".toys.DiceToy"
+            android:exported="true"
+            tools:ignore="ExportedService">
+            <intent-filter><action android:name="com.nothing.glyph.TOY" /></intent-filter>
+            <meta-data android:name="com.nothing.glyph.toy.name" android:resource="@string/toy_dice_name" />
+            <meta-data android:name="com.nothing.glyph.toy.image" android:resource="@drawable/preview_dice" />
+            <meta-data android:name="com.nothing.glyph.toy.summary" android:resource="@string/toy_dice_summary" />
+            <meta-data android:name="com.nothing.glyph.toy.introduction" android:value="mattiagiordano.sorte.MainActivity" />
+            <meta-data android:name="com.nothing.glyph.toy.longpress" android:value="1" />
+        </service>
+
+        <receiver android:name=".widget.ClosedOracleWidget" android:exported="true" android:label="@string/toy_closed_name">
+            <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_closed" />
+        </receiver>
+
+        <receiver android:name=".widget.OpenOracleWidget" android:exported="true" android:label="@string/toy_open_name">
+            <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_open" />
+        </receiver>
+
+        <receiver android:name=".widget.DiceWidget" android:exported="true" android:label="@string/toy_dice_name">
+            <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_dice" />
+        </receiver>
+    </application>
+</manifest>

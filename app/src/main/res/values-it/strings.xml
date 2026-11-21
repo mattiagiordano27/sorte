@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Sorte</string>
+
+    <string name="toy_closed_name">Oracolo chiuso</string>
+    <string name="toy_closed_summary">Fai una domanda sì/no, pressione lunga per la risposta</string>
+    <string name="toy_open_name">Oracolo aperto</string>
+    <string name="toy_open_summary">Un simbolo da interpretare</string>
+    <string name="toy_dice_name">Dadi</string>
+    <string name="toy_dice_summary">Scuoti a faccia in giù per lanciare</string>
+    <string name="toy_pro_summary">Scuoti a faccia in giù per usarlo</string>
+</resources>

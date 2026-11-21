@@ -1,0 +1,28 @@
+.gradle/
+build/
+app/build/
+local.properties
+.idea/
+*.iml
+.DS_Store
+# SDK Nothing: la licenza ne vieta la ridistribuzione, va scaricato a parte
+app/libs/*.aar
+_sdk/
+build.nosync/
+app/build.nosync/
+# file locali / pesanti
+GlyphOracolo.apk
+*.apk
+*.jks
+*.keystore
+keystore.properties
+icone/carte_foto.jpg
+app/build
+icone/da-carte/_confronto.jpg
+BOZZA.md
+TESTI_Sorte*.docx
+pubblicazione/
+firma/
+release/
+presentazione/
+
