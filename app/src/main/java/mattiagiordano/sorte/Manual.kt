@@ -94,7 +94,8 @@ object Manual {
 
         Block.Chapter("II", "L'Oracolo chiuso"),
         Block.Para("Per le domande a cui si risponde sì o no: «Il gentil gendarme mi ha visto?». Fai la domanda: " +
-            "uno sbuffo di vapore si dirada e lascia la risposta."),
+            "una piccola nuvola cade sulle pietre calde, si fa pioggia, poi vapore, e risale lasciando la risposta. " +
+            "La nuvola ripercorre al contrario il ciclo che l'ha formata, e torna a salire, ciclicamente."),
         Block.Para("Il vapore ricorda la Pizia, la sacerdotessa di Delfi che rispondeva seduta sopra i vapori che " +
             "salivano dalla terra."),
         Block.Row("NO", "No, senza riserve."),
@@ -113,7 +114,7 @@ object Manual {
         Block.Rule("Il «ma» e il simbolo sono inviti, non vincoli."),
 
         Block.Chapter("III", "L'Oracolo aperto"),
-        Block.Para("Per le domande che non hanno un sì o un no: chi è, cosa trovo, cosa succede adesso. La " +
+        Block.Para("Per le domande aperte, quelle a cui non basta un sì o un no: chi è, cosa trovo, cosa succede adesso. La " +
             "fiammella che brucia la carta, il fuoco la consuma e resta un simbolo."),
         Block.Para("Il simbolo non ha un significato fisso. Leggilo alla lettera, come metafora o come stato d'animo. " +
             "Spesso il primo pensiero è quello buono."),
@@ -177,8 +178,9 @@ object Manual {
             "the right edge for the next die or the left edge for the previous one; tap the centre to roll."),
 
         Block.Chapter("II", "The Closed Oracle"),
-        Block.Para("For questions with a yes or no answer: “Did the kindly gendarme see me?” Ask, and a puff of " +
-            "steam drifts away and leaves the answer behind."),
+        Block.Para("For questions with a yes or no answer: “Did the kindly gendarme see me?” Ask, and a small " +
+            "cloud falls onto hot stones, turns to rain, then to steam, and rises again leaving the answer. " +
+            "The cloud runs backwards through the cycle that made it, and rises again, over and over."),
         Block.Para("The steam is a nod to the Pythia, the priestess of Delphi who gave her answers seated above the " +
             "vapours rising from the earth."),
         Block.Row("NO", "No, plain and simple."),
@@ -197,7 +199,7 @@ object Manual {
         Block.Rule("The “but” and the symbol are invitations, not orders."),
 
         Block.Chapter("III", "The Open Oracle"),
-        Block.Para("For questions without a yes or no: who is it, what do I find, what happens now. The little " +
+        Block.Para("For open questions, the ones a yes or no can't answer: who is it, what do I find, what happens now. The little " +
             "flame catches the paper, the fire eats it away and a symbol is left behind."),
         Block.Para("A symbol has no fixed meaning. Read it literally, as a metaphor or as a mood. Your first thought " +
             "is usually the right one."),

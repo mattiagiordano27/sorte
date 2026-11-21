@@ -71,7 +71,7 @@ const TESTI = {
    ],
    [
     "Para",
-    "Per le domande a cui si risponde sì o no: «Il gentil gendarme mi ha visto?». Fai la domanda: uno sbuffo di vapore si dirada e lascia la risposta."
+    "Per le domande a cui si risponde sì o no: «Il gentil gendarme mi ha visto?». Fai la domanda: una piccola nuvola cade sulle pietre calde, si fa pioggia, poi vapore, e risale lasciando la risposta. La nuvola ripercorre al contrario il ciclo che l'ha formata, e torna a salire, ciclicamente."
    ],
    [
     "Para",
@@ -135,7 +135,7 @@ const TESTI = {
    ],
    [
     "Para",
-    "Per le domande che non hanno un sì o un no: chi è, cosa trovo, cosa succede adesso. La fiammella che brucia la carta, il fuoco la consuma e resta un simbolo."
+    "Per le domande aperte, quelle a cui non basta un sì o un no: chi è, cosa trovo, cosa succede adesso. La fiammella che brucia la carta, il fuoco la consuma e resta un simbolo."
    ],
    [
     "Para",
@@ -298,7 +298,7 @@ const TESTI = {
    ],
    [
     "Para",
-    "For questions with a yes or no answer: “Did the kindly gendarme see me?” Ask, and a puff of steam drifts away and leaves the answer behind."
+    "For questions with a yes or no answer: “Did the kindly gendarme see me?” Ask, and a small cloud falls onto hot stones, turns to rain, then to steam, and rises again leaving the answer. The cloud runs backwards through the cycle that made it, and rises again, over and over."
    ],
    [
     "Para",
@@ -362,7 +362,7 @@ const TESTI = {
    ],
    [
     "Para",
-    "For questions without a yes or no: who is it, what do I find, what happens now. The little flame catches the paper, the fire eats it away and a symbol is left behind."
+    "For open questions, the ones a yes or no can't answer: who is it, what do I find, what happens now. The little flame catches the paper, the fire eats it away and a symbol is left behind."
    ],
    [
     "Para",

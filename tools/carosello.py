@@ -66,7 +66,7 @@ VIS = {
 TEXT = {
     "en": [
         ("Sorte 0.27", "Sorte", "An oracle for creative writing, divination and role-playing.", "cover"),
-        ("Glyph Toy · 01", "Closed Oracle", "Ask a yes or no question. A small cloud falls onto hot stones and rises as steam with the answer.", "closed"),
+        ("Glyph Toy · 01", "Closed Oracle", "For questions you can answer with a yes or a no. A small cloud falls onto hot stones, turns to rain, then to steam, and rises again leaving the answer.", "closed"),
         ("Glyph Toy · 02", "Open Oracle", "A little flame catches the paper. What the fire leaves behind is a symbol to read.", "open"),
         ("Glyph Toy · 03", "Dice", "d4 to d100 as silhouettes. Shake it face down; while charging, lift one edge and set it back down.", "dice"),
         ("Symbols", "The deck", "Twelve cards from Mattia Giordano's personal oracle deck, drawn in dots.", "symbols"),
@@ -75,7 +75,7 @@ TEXT = {
     ],
     "it": [
         ("Sorte 0.27", "Sorte", "Un oracolo per scrittura creativa, divinazione e gioco di ruolo.", "cover"),
-        ("Glyph Toy · 01", "Oracolo chiuso", "Fai una domanda sì o no. Una piccola nuvola cade sulle pietre calde e risale come vapore con la risposta.", "closed"),
+        ("Glyph Toy · 01", "Oracolo chiuso", "Per le domande a cui si risponde sì o no. Una piccola nuvola cade sulle pietre calde, si fa pioggia, poi vapore, e risale lasciando la risposta.", "closed"),
         ("Glyph Toy · 02", "Oracolo aperto", "Una fiammella brucia la carta. Quello che il fuoco lascia è un simbolo da leggere.", "open"),
         ("Glyph Toy · 03", "Dadi", "Dal d4 al d100, come sagome. Scuoti a faccia in giù; in carica, sollevane un lato e riappoggialo.", "dice"),
         ("Simboli", "Il mazzo", "Dodici carte del mazzo oracolare personale di Mattia Giordano, disegnate a puntini.", "symbols"),

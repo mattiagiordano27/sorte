@@ -28,8 +28,8 @@
     <td width="33%" align="center"><img src="docs/media/readme/glyph_dice.gif" alt="The dice on the Glyph Matrix" width="100%"></td>
   </tr>
   <tr>
-    <td valign="top"><sub>GLYPH TOY · 01</sub><br><b>Closed Oracle</b><br>Ask a yes or no question. A small cloud falls onto hot stones and rises as steam, leaving the answer behind: no, no but, meh, yes but, yes.</td>
-    <td valign="top"><sub>GLYPH TOY · 02</sub><br><b>Open Oracle</b><br>For questions without a yes or no. A little flame catches the paper; what the fire leaves behind is a symbol to read.</td>
+    <td valign="top"><sub>GLYPH TOY · 01</sub><br><b>Closed Oracle</b><br>For questions you can answer with a yes or a no. A small cloud falls onto hot stones, turns to rain, then to steam, and rises again leaving the answer. The cloud runs backwards through the cycle that made it, and rises again, over and over.</td>
+    <td valign="top"><sub>GLYPH TOY · 02</sub><br><b>Open Oracle</b><br>For open questions, the ones a yes or no can't answer: who, what, how. A little flame catches the paper; what the fire leaves behind is a symbol to read.</td>
     <td valign="top"><sub>GLYPH TOY · 03</sub><br><b>Dice</b><br>From d4 to d100, drawn as silhouettes. Turn the phone over and shake it like a dice cup; while charging, lift one edge and set it back down.</td>
   </tr>
 </table>
@@ -39,7 +39,7 @@
 ## Features · Version 0.27
 
 ### Glyph Toys
-- 🌫️ **Closed Oracle.** Ask a yes or no question: a small cloud falls onto hot stones and rises as steam with the answer.
+- 🌫️ **Closed Oracle.** For questions you can answer with a yes or a no: a small cloud falls onto hot stones, turns to rain, then to steam, and rises again with the answer.
 - 🔥 **Open Oracle.** A little flame burns the paper, and what the fire leaves behind is a symbol to read.
 - 🎲 **Dice.** From d4 to d100, drawn as silhouettes that tumble and settle on felt.
 
@@ -65,7 +65,7 @@
 ### Funzioni · Versione 0.27
 
 #### Glyph Toy
-- 🌫️ **Oracolo chiuso.** Fai una domanda sì o no: una piccola nuvola cade sulle pietre calde e risale come vapore con la risposta.
+- 🌫️ **Oracolo chiuso.** Per le domande a cui si risponde sì o no: una piccola nuvola cade sulle pietre calde, si fa pioggia, poi vapore, e risale con la risposta.
 - 🔥 **Oracolo aperto.** Una fiammella brucia la carta, e quello che il fuoco lascia è un simbolo da leggere.
 - 🎲 **Dadi.** Dal d4 al d100, disegnati come sagome che rotolano e si posano sul feltro.
 
