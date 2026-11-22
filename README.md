@@ -56,7 +56,7 @@
 
 ### Everywhere
 - 📱 A regular app on any Android 10+, in English and Italian.
-- 🌐 A web version for iPhone, iPad and any computer. Add it to your home screen and it works offline.
+- 🌐 A web version for iPhone, iPad or any computer. Add it to your home screen and it works offline.
 
 ### Privacy
 - 🔒 No data collected or sold, no ads, no tracking. Works offline.
@@ -84,7 +84,7 @@
 
 #### Ovunque
 - 📱 App per ogni Android 10+, in italiano e in inglese.
-- 🌐 Una versione web per iPhone, iPad e qualsiasi computer. Aggiungila alla schermata Home e funziona anche offline.
+- 🌐 Una versione web per iPhone, iPad o qualsiasi computer. Aggiungila alla schermata Home e funziona anche offline.
 
 #### Privacy
 - 🔒 Nessun dato raccolto né venduto, niente pubblicità né tracciamento. Funziona offline.

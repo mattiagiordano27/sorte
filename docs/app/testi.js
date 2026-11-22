@@ -38,7 +38,7 @@ const TESTI = {
    ],
    [
     "Para",
-    "Sorte c'è anche nel browser, per iPhone, iPad e qualsiasi computer: mattiagiordano27.github.io/sorte/app."
+    "Sorte funziona anche nel browser, su iPhone, iPad o qualsiasi computer: mattiagiordano27.github.io/sorte/app."
    ],
    [
     "Heading",
@@ -257,7 +257,7 @@ const TESTI = {
    ],
    [
     "Para",
-    "Sorte is also available in your browser, for iPhone, iPad and any computer: mattiagiordano27.github.io/sorte/app."
+    "Sorte also works in your web browser, on iPhone, iPad or any computer: mattiagiordano27.github.io/sorte/app."
    ],
    [
     "Heading",

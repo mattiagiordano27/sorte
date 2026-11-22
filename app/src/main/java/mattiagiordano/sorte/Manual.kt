@@ -79,7 +79,7 @@ object Manual {
         Block.Heading("Nell'app"),
         Block.Para("Scegli in basso l'oracolo chiuso, l'oracolo aperto o i dadi, poi tocca la matrice o scuoti il telefono. " +
             "Per i dadi, scegli il tipo coi pulsanti sotto la matrice."),
-        Block.Para("Sorte c'è anche nel browser, per iPhone, iPad e qualsiasi computer: mattiagiordano27.github.io/sorte/app."),
+        Block.Para("Sorte funziona anche nel browser, su iPhone, iPad o qualsiasi computer: mattiagiordano27.github.io/sorte/app."),
         Block.Heading("Sul retro · Nothing Phone (3)"),
         Block.Para("I tre strumenti sono Glyph Toys. Pressione breve sul Glyph Button per sceglierli, pressione lunga " +
             "per usarli. Puoi anche scuotere il telefono a faccia in giù."),
@@ -161,7 +161,7 @@ object Manual {
         Block.Heading("In the app"),
         Block.Para("Pick the closed oracle, the open oracle or the dice at the bottom, then tap the matrix or give the " +
             "phone a shake. For the dice, choose the type with the buttons under the matrix."),
-        Block.Para("Sorte is also available in your browser, for iPhone, iPad and any computer: mattiagiordano27.github.io/sorte/app."),
+        Block.Para("Sorte also works in your web browser, on iPhone, iPad or any computer: mattiagiordano27.github.io/sorte/app."),
         Block.Heading("On the back · Nothing Phone (3)"),
         Block.Para("The three tools are Glyph Toys. A short press on the Glyph Button cycles through them, a long press " +
             "uses them. You can also shake the phone face down."),
