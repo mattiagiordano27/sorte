@@ -4,6 +4,7 @@ package mattiagiordano.sorte
 object Credits {
     const val AUTHOR = "Mattia Giordano"
     const val YEAR = "2026"
+    const val INSTAGRAM = "https://www.instagram.com/mattiogiordana/"
     const val VERSION = "0.27.1"
 
     fun lines(italian: Boolean): List<String> = if (italian) listOf(

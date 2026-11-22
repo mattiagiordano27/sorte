@@ -4,6 +4,7 @@
 const $ = s => document.querySelector(s);
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 const LANDING = 'https://mattiagiordano27.github.io/sorte/';
+const INSTAGRAM = 'https://www.instagram.com/mattiogiordana/';
 
 // ── preferenze (solo comodità: se il browser non le salva, si riparte dai valori di base) ──
 const Prefs = {
@@ -303,7 +304,11 @@ function renderSettings() {
   h += `<div class="sect label muted">${esc(w.android)}</div><p>${esc(w.androidBody)}</p>`;
   h += `<div class="chips"><a class="chip label" href="${LANDING}" target="_blank" rel="noopener">${esc(w.androidLink)} ↗</a></div>`;
   h += `<div class="sep"></div><div class="label muted">${esc(w.credits)}</div><div style="height:10px"></div>`;
-  TESTI.credits[italian() ? 'it' : 'en'].forEach(l => { h += `<p class="muted">${esc(l.startsWith('Glyph Matrix SDK') ? w.independent : l)}</p>`; });
+  TESTI.credits[italian() ? 'it' : 'en'].forEach((l, i) => {
+    let t = esc(l.startsWith('Glyph Matrix SDK') ? w.independent : l);
+    if (i === 0) t = t.replace('Mattia Giordano', `<a class="ig" href="${INSTAGRAM}" target="_blank" rel="noopener">Mattia Giordano</a>`);   // una sola volta
+    h += `<p class="muted">${t}</p>`;
+  });
   h += `<div class="label muted" style="margin-top:10px">v${TESTI.version}</div>`;
   $('#settings .in').innerHTML = h;
   document.querySelectorAll('[data-lang]').forEach(b => b.onclick = () => { lang = b.dataset.lang; Prefs.set('lingua', lang); renderPlay(); renderSettings(); });

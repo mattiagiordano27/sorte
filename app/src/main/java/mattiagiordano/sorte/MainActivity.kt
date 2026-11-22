@@ -30,6 +30,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.lerp
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.withLink
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import mattiagiordano.sorte.logic.ClosedOracle
@@ -431,8 +432,17 @@ class MainActivity : ComponentActivity() {
         Spacer(Modifier.height(16.dp))
         Label(if (Prefs.italian(this@MainActivity)) "Crediti" else "Credits")
         Spacer(Modifier.height(10.dp))
-        Credits.lines(Prefs.italian(this@MainActivity)).forEach {
-            Text(it, style = T.body, color = c.muted, modifier = Modifier.padding(bottom = 6.dp))
+        Credits.lines(Prefs.italian(this@MainActivity)).forEachIndexed { i, line ->
+            // il nome nella prima riga porta al profilo Instagram (una sola volta)
+            val k = if (i == 0) line.indexOf(Credits.AUTHOR) else -1
+            val text = if (k < 0) androidx.compose.ui.text.AnnotatedString(line) else androidx.compose.ui.text.buildAnnotatedString {
+                append(line.substring(0, k))
+                withLink(androidx.compose.ui.text.LinkAnnotation.Url(Credits.INSTAGRAM,
+                    androidx.compose.ui.text.TextLinkStyles(androidx.compose.ui.text.SpanStyle(color = c.text,
+                        textDecoration = androidx.compose.ui.text.style.TextDecoration.Underline)))) { append(Credits.AUTHOR) }
+                append(line.substring(k + Credits.AUTHOR.length))
+            }
+            Text(text, style = T.body, color = c.muted, modifier = Modifier.padding(bottom = 6.dp))
         }
         Spacer(Modifier.height(10.dp))
         Text("v" + Credits.VERSION, style = T.label, color = c.muted)

@@ -155,7 +155,7 @@ Development tools: `tools/editor.py` (icon editor for the 25×25 matrix), `tools
 
 ## Credits and licences
 
-- Concept, symbols, drawings, texts and sounds: © 2026 Mattia Giordano.
+- Concept, symbols, drawings, texts and sounds: © 2026 [Mattia Giordano](https://www.instagram.com/mattiogiordana/).
 - Code: MIT licence (see `LICENSE`).
 - Symbols (`app/src/main/assets/icone/`), texts and sounds: [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/). Share with credit; no modifications, no commercial use.
 - Font Doto, SIL Open Font License 1.1 (`app/src/main/assets/licenze/OFL-Doto.txt`).
