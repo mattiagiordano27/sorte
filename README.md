@@ -36,9 +36,9 @@
 
 <br>
 
-## Features · Version 0.27.1
+## Features
 
-### Glyph Toys
+### Glyph Toys (on Nothing Phone (3) and (4a) Pro)
 - 🌫️ **Closed Oracle.** For questions you can answer with a yes or a no: a small cloud falls onto hot stones, turns to rain, then to steam, and rises again with the answer.
 - 🔥 **Open Oracle.** A little flame burns the paper, and what the fire leaves behind is a symbol to read.
 - 🎲 **Dice.** From d4 to d100, drawn as silhouettes that tumble and settle on the table.
@@ -57,7 +57,6 @@
 ### Everywhere
 - 📱 A regular app on any Android 10+, in English and Italian.
 - 🌐 A web version for iPhone, iPad and any computer. Add it to your home screen and it works offline.
-- ✨ Always-on Glyph Toys for Phone (4a) Pro, used by shaking.
 
 ### Privacy
 - 🔒 No data collected or sold, no ads, no tracking. Works offline.
@@ -65,9 +64,9 @@
 <details>
 <summary><b>Italiano</b></summary>
 
-### Funzioni · Versione 0.27.1
+### Funzioni
 
-#### Glyph Toys
+#### Glyph Toys (su Nothing Phone (3) e (4a) Pro)
 - 🌫️ **Oracolo chiuso.** Per le domande a cui si risponde sì o no: una piccola nuvola cade sulle pietre calde, si fa pioggia, poi vapore, e risale con la risposta.
 - 🔥 **Oracolo aperto.** Una fiammella brucia la carta, e quello che il fuoco lascia è un simbolo da leggere.
 - 🎲 **Dadi.** Dal d4 al d100, disegnati come sagome che rotolano e si posano sul tavolo.
@@ -86,7 +85,6 @@
 #### Ovunque
 - 📱 App per ogni Android 10+, in italiano e in inglese.
 - 🌐 Una versione web per iPhone, iPad e qualsiasi computer. Aggiungila alla schermata Home e funziona anche offline.
-- ✨ Glyph Toys always-on per Phone (4a) Pro, che si usano scuotendo.
 
 #### Privacy
 - 🔒 Nessun dato raccolto né venduto, niente pubblicità né tracciamento. Funziona offline.
