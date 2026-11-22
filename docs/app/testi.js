@@ -257,7 +257,7 @@ const TESTI = {
    ],
    [
     "Para",
-    "Sorte is also available in the browser, for iPhone, iPad and any computer: mattiagiordano27.github.io/sorte/app."
+    "Sorte is also available in your browser, for iPhone, iPad and any computer: mattiagiordano27.github.io/sorte/app."
    ],
    [
     "Heading",

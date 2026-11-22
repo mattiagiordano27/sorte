@@ -161,7 +161,7 @@ object Manual {
         Block.Heading("In the app"),
         Block.Para("Pick the closed oracle, the open oracle or the dice at the bottom, then tap the matrix or give the " +
             "phone a shake. For the dice, choose the type with the buttons under the matrix."),
-        Block.Para("Sorte is also available in the browser, for iPhone, iPad and any computer: mattiagiordano27.github.io/sorte/app."),
+        Block.Para("Sorte is also available in your browser, for iPhone, iPad and any computer: mattiagiordano27.github.io/sorte/app."),
         Block.Heading("On the back · Nothing Phone (3)"),
         Block.Para("The three tools are Glyph Toys. A short press on the Glyph Button cycles through them, a long press " +
             "uses them. You can also shake the phone face down."),
