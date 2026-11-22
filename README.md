@@ -6,7 +6,7 @@
 <p align="center">Three tools, one small light on your phone.</p>
 
 <p align="center">
-  <a href="https://github.com/mattiagiordano27/sorte/releases/latest"><img src="https://img.shields.io/badge/Download-Sorte_0.27-f2f2f2?style=for-the-badge&labelColor=000000" alt="Download Sorte 0.27"></a>
+  <a href="https://github.com/mattiagiordano27/sorte/releases/latest"><img src="https://img.shields.io/badge/Download-Sorte_0.27.1-f2f2f2?style=for-the-badge&labelColor=000000" alt="Download Sorte 0.27.1"></a>
   <a href="https://mattiagiordano27.github.io/sorte/app/"><img src="https://img.shields.io/badge/Open_in_browser-iPhone_·_iPad_·_any_computer-f2f2f2?style=for-the-badge&labelColor=000000" alt="Open in browser"></a>
   <a href="https://mattiagiordano27.github.io/sorte/"><img src="https://img.shields.io/badge/Website-mattiagiordano27.github.io%2Fsorte-f2f2f2?style=for-the-badge&labelColor=000000" alt="Website"></a>
 </p>
@@ -36,7 +36,7 @@
 
 <br>
 
-## Features · Version 0.27
+## Features · Version 0.27.1
 
 ### Glyph Toys
 - 🌫️ **Closed Oracle.** For questions you can answer with a yes or a no: a small cloud falls onto hot stones, turns to rain, then to steam, and rises again with the answer.
@@ -65,7 +65,7 @@
 <details>
 <summary><b>Italiano</b></summary>
 
-### Funzioni · Versione 0.27
+### Funzioni · Versione 0.27.1
 
 #### Glyph Toys
 - 🌫️ **Oracolo chiuso.** Per le domande a cui si risponde sì o no: una piccola nuvola cade sulle pietre calde, si fa pioggia, poi vapore, e risale con la risposta.
@@ -142,7 +142,7 @@ The same three tools on screen: tap the matrix or give the phone a shake. A shor
 
 ## Install
 
-1. Download **Sorte-0.27.apk** from [Releases](https://github.com/mattiagiordano27/sorte/releases/latest) and open it on your phone (allow installing from this source when asked).
+1. Download **Sorte-0.27.1.apk** from [Releases](https://github.com/mattiagiordano27/sorte/releases/latest) and open it on your phone (allow installing from this source when asked).
 2. **Nothing Phone (3):** open Sorte › ··· › *Add to Glyph Toys*, then pick the toys with a short press on the Glyph Button.
 3. **Phone (4a) Pro:** Settings › Glyph Interface › Flip to Glyph › Always-on Glyph Toy.
 4. **Any other Android 10+:** use the app and the three home-screen widgets.
@@ -174,4 +174,4 @@ Development tools: `tools/editor.py` (icon editor for the 25×25 matrix), `tools
 - Fonts Doto and Geist, SIL Open Font License 1.1 (`app/src/main/assets/licenze/OFL-Doto.txt`, `docs/fonts/`).
 - Glyph Matrix SDK © Nothing Technology Ltd. Independent app, not affiliated with Nothing.
 
-<p align="center"><br><img src="docs/media/icon.png" width="48" alt=""><br><sub>Sorte 0.27 · <a href="https://www.instagram.com/mattiogiordana/">Mattia Giordano</a></sub></p>
+<p align="center"><br><img src="docs/media/icon.png" width="48" alt=""><br><sub>Sorte 0.27.1 · <a href="https://www.instagram.com/mattiogiordana/">Mattia Giordano</a></sub></p>
