@@ -182,9 +182,12 @@ class MainActivity : ComponentActivity() {
         }
         LaunchedEffect(idle, mode) {
             if (!idle || mode == 2) return@LaunchedEffect
+            val m = mode
             var t = 0.0
             while (true) {
-                frame = if (mode == 0) Scripts.closedIdle(t) else Scripts.openIdle(t)
+                // cambio di scheda: l'attesa si ferma subito, senza disegnare un ultimo fotogramma sopra l'altro strumento
+                if (mode != m || !idle) break
+                frame = if (m == 0) Scripts.closedIdle(t) else Scripts.openIdle(t)
                 idleClock = t
                 delay(Scripts.IDLE_MS); t += Scripts.IDLE_MS / 1000.0
             }
@@ -200,7 +203,7 @@ class MainActivity : ComponentActivity() {
             askJob = scope.launch {
                 val steps = if (m == 0) Scripts.closedAsk(ClosedOracle.ask(), italian, Icons.random(this@MainActivity), idleClock)
                             else Icons.random(this@MainActivity)?.let { Scripts.openAsk(it) } ?: emptyList()
-                play(Scripts.hook(from, steps), unlockMs = 750)
+                play(Scripts.hook(from, steps))   // il tondo resta bloccato fino alla fine: ritmo riflessivo
                 busy = false
             }
         }

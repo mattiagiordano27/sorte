@@ -124,7 +124,6 @@ const randomSymbol = () => { const k = Object.keys(symbols); return k.length ? s
 let mode = 0, dieIdx = Math.min(DICE.length - 1, Math.max(0, Prefs.get('dado', 5)));
 let busy = false, holding = false, idleToken = 0, idleClock = 0, entered = false;
 
-const UNLOCK_EARLY_MS = 750;   // l'ultima parte della pausa sul risultato non blocca più
 let playToken = 0;
 /** Mostra i passi. [unlockMs] = quanto prima della fine si può già fare una nuova domanda. */
 async function play(steps, unlockMs = 0) {
@@ -164,7 +163,7 @@ async function ask() {
   const steps = m === 0 ? Scripts.closedAsk(ClosedOracle.ask(), italian(), randomSymbol(), idleClock)
                         : (randomSymbol() ? Scripts.openAsk(randomSymbol()) : []);
   // il risultato resta acceso, ma dopo poco si può già chiedere di nuovo
-  if (await play(Scripts.hook(from, steps), UNLOCK_EARLY_MS)) busy = false;
+  if (await play(Scripts.hook(from, steps))) busy = false;   // bloccato fino alla fine: ritmo riflessivo
 }
 
 /** Dadi: rotola finché [holding] (tocco = un attimo, scuotere = quanto scuoti), poi si posa. */
