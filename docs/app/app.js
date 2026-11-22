@@ -340,9 +340,10 @@ const pageOpen = () => !!document.querySelector('.page.on');
 function openPage(id) {
   (id === 'manual' ? renderManual : renderSettings)();
   const p = $('#' + id); p.classList.add('on'); p.scrollTop = 0;
-  p.querySelector('[data-back]').onclick = closePages;
 }
 function closePages() { document.querySelectorAll('.page').forEach(p => p.classList.remove('on')); }
+// la freccia «indietro» funziona sempre, anche dopo che la pagina si ridisegna (lingua, suoni, scuoti)
+document.addEventListener('click', e => { if (e.target.closest('[data-back]')) closePages(); });
 $('#btnManual').onclick = () => openPage('manual');
 $('#btnSettings').onclick = () => openPage('settings');
 
