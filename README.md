@@ -59,6 +59,9 @@
 - 🌐 A web version for iPhone, iPad and any computer. Add it to your home screen and it works offline.
 - ✨ Always-on Glyph Toys for Phone (4a) Pro, used by shaking.
 
+### Privacy
+- 🔒 No data collected or sold, no ads, no tracking. Works offline.
+
 <details>
 <summary><b>Italiano</b></summary>
 
@@ -84,6 +87,9 @@
 - 📱 App per ogni Android 10+, in italiano e in inglese.
 - 🌐 Una versione web per iPhone, iPad e qualsiasi computer. Aggiungila alla schermata Home e funziona anche offline.
 - ✨ Glyph Toy always-on per Phone (4a) Pro, che si usano scuotendo.
+
+#### Privacy
+- 🔒 Nessun dato raccolto né venduto, niente pubblicità né tracciamento. Funziona offline.
 
 </details>
 
@@ -153,12 +159,19 @@ The same three tools on screen: tap the matrix or give the phone a shake. A shor
 
 Development tools: `tools/editor.py` (icon editor for the 25×25 matrix), `tools/laboratorio.py` (animation and sound lab), `tools/suoni.py` (app sounds), `tools/anteprime.py` (previews).
 
+## Privacy
+
+- Sorte doesn't collect, store or sell any data: no account, ads, analytics or tracking.
+- The Android app uses the internet only to check, once a day, the latest public release on GitHub. It sends nothing about you.
+- The web app works offline after the first visit; your language and die stay on your device.
+- Like any website, GitHub, which hosts the pages and the releases, receives the usual technical connection data, such as your IP address. Sorte doesn't use it. The pages load no external fonts or scripts.
+
 ## Credits and licences
 
 - Concept, symbols, drawings, texts and sounds: © 2026 [Mattia Giordano](https://www.instagram.com/mattiogiordana/).
 - Code: MIT licence (see `LICENSE`).
 - Symbols (`app/src/main/assets/icone/`), texts and sounds: [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/). Share with credit; no modifications, no commercial use.
-- Font Doto, SIL Open Font License 1.1 (`app/src/main/assets/licenze/OFL-Doto.txt`).
+- Fonts Doto and Geist, SIL Open Font License 1.1 (`app/src/main/assets/licenze/OFL-Doto.txt`, `docs/fonts/`).
 - Glyph Matrix SDK © Nothing Technology Ltd. Independent app, not affiliated with Nothing.
 
 <p align="center"><br><img src="docs/media/icon.png" width="48" alt=""><br><sub>Sorte 0.27 · <a href="https://www.instagram.com/mattiogiordana/">Mattia Giordano</a></sub></p>

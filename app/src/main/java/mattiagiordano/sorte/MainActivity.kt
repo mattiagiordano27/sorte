@@ -25,6 +25,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.lerp
@@ -69,7 +70,12 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         configureToys()
         setContent { OracleTheme { App() } }
+        // avviso di aggiornamento (al massimo un controllo al giorno, in sottofondo)
+        Thread { val info = UpdateCheck.check(this); runOnUiThread { update = info } }.start()
     }
+
+    /** Ultima versione su GitHub, se più nuova di questa (altrimenti null). */
+    private var update by mutableStateOf<UpdateCheck.Info?>(null)
 
     /**
      * Phone (4a) Pro: solo toy always-on (niente Glyph Button) → accende le versioni always-on (a scuotimento) e nasconde i tre
@@ -257,7 +263,10 @@ class MainActivity : ComponentActivity() {
             }
             RoundButton("?", onManual)
             Spacer(Modifier.width(10.dp))
-            RoundButton("···", onSettings)
+            Box {
+                RoundButton("···", onSettings)
+                if (update != null) GlowDot(Modifier.align(Alignment.TopEnd).offset(x = 2.dp, y = (-2).dp))
+            }
         }
 
         @Composable fun TheMatrix(m: Modifier) = Matrix(
@@ -382,6 +391,24 @@ class MainActivity : ComponentActivity() {
     @Composable
     private fun Settings(tx: UiText, lang: Prefs.Lang, onLang: (Prefs.Lang) -> Unit) {
         val c = LocalPalette.current
+        update?.let { u ->
+            val it = Prefs.italian(this@MainActivity)
+            Row(
+                Modifier.fillMaxWidth().border(1.dp, c.line, RoundedCornerShape(18.dp)).padding(horizontal = 18.dp, vertical = 14.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                GlowDot()
+                Spacer(Modifier.width(14.dp))
+                Column(Modifier.weight(1f)) {
+                    Text((if (it) "Nuova versione: " else "New version: ") + u.version, style = T.body, color = c.text)
+                    Text((if (it) "Hai la " else "You have ") + Credits.VERSION, style = T.body, fontSize = 13.sp, color = c.muted)
+                }
+                Chip(if (it) "Scarica" else "Download", selected = true) {
+                    runCatching { startActivity(Intent(Intent.ACTION_VIEW, android.net.Uri.parse(u.url))) }
+                }
+            }
+            Spacer(Modifier.height(30.dp))
+        }
         Label(tx.language)
         Spacer(Modifier.height(10.dp))
         Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -426,6 +453,14 @@ class MainActivity : ComponentActivity() {
             }
             Spacer(Modifier.height(10.dp))
             Text(tx.soundsHelp, style = T.body, color = c.muted)
+        }
+        // PRIVACY: cosa fa (e non fa) l'app con i dati
+        Spacer(Modifier.height(36.dp))
+        Label("Privacy")
+        Spacer(Modifier.height(10.dp))
+        (if (Prefs.italian(this@MainActivity)) listOf("Sorte non raccoglie, non salva e non vende nessun dato.", "Niente account, pubblicità o tracciamento: funziona tutta offline.", "La connessione a internet serve solo a controllare, una volta al giorno, se su GitHub c'è una versione nuova. Non viene inviato nulla di tuo.")
+         else listOf("Sorte doesn't collect, store or sell any data.", "No account, no ads, no tracking: it works entirely offline.", "The internet connection is only used to check, once a day, whether there's a new version on GitHub. Nothing of yours is sent.")).forEach {
+            Text(it, style = T.body, color = c.text, modifier = Modifier.padding(bottom = 6.dp))
         }
         Spacer(Modifier.height(36.dp))
         Box(Modifier.fillMaxWidth().height(1.dp).background(c.line))
@@ -520,6 +555,21 @@ class MainActivity : ComponentActivity() {
     @Composable
     private fun Label(t: String, color: Color = LocalPalette.current.muted) =
         Text(t.uppercase(), style = T.label, color = color)
+
+    /** Il puntino luminoso dell'aggiornamento: bianco con alone su nero, nero in tema chiaro. */
+    @Composable
+    private fun GlowDot(modifier: Modifier = Modifier) {
+        val c = LocalPalette.current
+        Box(
+            modifier.size(11.dp).drawBehind {
+                drawCircle(
+                    androidx.compose.ui.graphics.Brush.radialGradient(
+                        listOf(c.text.copy(alpha = 0.55f), Color.Transparent), center = center, radius = size.minDimension * 1.4f),
+                    radius = size.minDimension * 1.4f,
+                )
+            }.background(c.text, CircleShape)
+        )
+    }
 
     @Composable
     private fun RoundButton(t: String, onClick: () -> Unit) {

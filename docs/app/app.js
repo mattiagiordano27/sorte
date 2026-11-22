@@ -31,6 +31,7 @@ const WEB = {
     android: 'Su Android',
     androidBody: 'L’app per Android ha anche i widget, e su Nothing Phone (3) i tre strumenti vivono sul retro, sulla Glyph Matrix.',
     androidLink: 'Scarica l’app',
+    privacy: ['Sorte non raccoglie e non vende nessun dato: niente account, pubblicità o tracciamento.', 'Lingua e dado scelti restano solo su questo dispositivo.', 'Dopo la prima apertura funziona offline.'],
     credits: 'Crediti', independent: 'App indipendente, non affiliata a Nothing.',
   },
   en: {
@@ -48,6 +49,7 @@ const WEB = {
     android: 'On Android',
     androidBody: 'The Android app also has widgets, and on Nothing Phone (3) the three tools live on the back, on the Glyph Matrix.',
     androidLink: 'Get the app',
+    privacy: ["Sorte doesn't collect or sell any data: no account, no ads, no tracking.", "Your language and die stay on this device only.", "After the first visit it works offline."],
     credits: 'Credits', independent: 'Independent app, not affiliated with Nothing.',
   },
 };
@@ -303,6 +305,7 @@ function renderSettings() {
   h += `<div class="sect label muted">${esc(w.install)}</div>` + w.installSteps.map(([d, t]) => `<div class="rule"><span><b>${esc(d)}</b>: ${esc(t)}</span></div>`).join('') + `<p class="muted">${esc(w.installNote)}</p>`;
   h += `<div class="sect label muted">${esc(w.android)}</div><p>${esc(w.androidBody)}</p>`;
   h += `<div class="chips"><a class="chip label" href="${LANDING}" target="_blank" rel="noopener">${esc(w.androidLink)} ↗</a></div>`;
+  h += `<div class="sect label muted">Privacy</div>` + w.privacy.map(l => `<p>${esc(l)}</p>`).join('');
   h += `<div class="sep"></div><div class="label muted">${esc(w.credits)}</div><div style="height:10px"></div>`;
   TESTI.credits[italian() ? 'it' : 'en'].forEach((l, i) => {
     let t = esc(l.startsWith('Glyph Matrix SDK') ? w.independent : l);
