@@ -458,8 +458,8 @@ class MainActivity : ComponentActivity() {
         Spacer(Modifier.height(36.dp))
         Label("Privacy")
         Spacer(Modifier.height(10.dp))
-        (if (Prefs.italian(this@MainActivity)) listOf("Sorte non raccoglie, non salva e non vende nessun dato.", "Niente account, pubblicità o tracciamento: funziona tutta offline.", "La connessione a internet serve solo a controllare, una volta al giorno, se su GitHub c'è una versione nuova. Non viene inviato nulla di tuo.")
-         else listOf("Sorte doesn't collect, store or sell any data.", "No account, no ads, no tracking: it works entirely offline.", "The internet connection is only used to check, once a day, whether there's a new version on GitHub. Nothing of yours is sent.")).forEach {
+        (if (Prefs.italian(this@MainActivity)) listOf("Sorte non raccoglie, non salva e non vende nessun dato.", "Niente account, pubblicità o tracciamento: funziona tutta offline.", "La connessione a internet serve solo a controllare, una volta al giorno, se su GitHub c'è una versione nuova.")
+         else listOf("Sorte doesn't collect, store or sell any data.", "No account, no ads, no tracking: it works entirely offline.", "The internet connection is only used to check, once a day, whether there's a new version on GitHub.")).forEach {
             Text(it, style = T.body, color = c.text, modifier = Modifier.padding(bottom = 6.dp))
         }
         Spacer(Modifier.height(36.dp))

@@ -160,7 +160,7 @@ Development tools: `tools/editor.py` (icon editor for the 25×25 matrix), `tools
 ## Privacy
 
 - Sorte doesn't collect, store or sell any data: no account, ads, analytics or tracking.
-- The Android app uses the internet only to check, once a day, the latest public release on GitHub. It sends nothing about you.
+- The Android app uses the internet only to check, once a day, the latest public release on GitHub.
 - The web app works offline after the first visit; your language and die stay on your device.
 - Like any website, GitHub, which hosts the pages and the releases, receives the usual technical connection data, such as your IP address. Sorte doesn't use it. The pages load no external fonts or scripts.
 
