@@ -1,6 +1,6 @@
 // generato da testi_da_app.py: non modificare a mano
 const TESTI = {
- "version": "0.27",
+ "version": "0.27.1",
  "manual": {
   "it": [
    [
@@ -17,11 +17,11 @@ const TESTI = {
    ],
    [
     "Rule",
-    "Divinazione e domande del giorno: una domanda, una risposta, per poi meditarci su."
+    "Divinazione e domande del giorno: una domanda, una risposta, per meditarci su."
    ],
    [
     "Rule",
-    "Decisioni e giochi al tavolo: un dado, uno spareggio, una svolta."
+    "Decisioni e giochi da tavolo: un dado, uno spareggio, una svolta."
    ],
    [
     "Chapter",
@@ -46,15 +46,15 @@ const TESTI = {
    ],
    [
     "Para",
-    "I tre strumenti sono Glyph Toy. Pressione breve sul Glyph Button per sceglierli, pressione lunga per usarli. Puoi anche scuotere il telefono a faccia in giù."
+    "I tre strumenti sono Glyph Toys. Pressione breve sul Glyph Button per sceglierli, pressione lunga per usarli. Puoi anche scuotere il telefono a faccia in giù."
    ],
    [
     "Para",
-    "Dadi: tieni premuto il pulsante sul retro per cambiare dado. Capovolgi il telefono e scuotilo come un bicchiere di dadi: finché scuoti rotola, quando ti fermi rimbalza sul feltro e si posa."
+    "Dadi: tieni premuto il pulsante sul retro per cambiare dado. Capovolgi il telefono e scuotilo come un bicchiere di dadi: finché scuoti rotola, quando ti fermi rimbalza sul tavolo e si posa."
    ],
    [
     "Para",
-    "In carica Nothing usa lo scuotimento per mostrare la batteria: gli oracoli si usano con la pressione lunga, e per i dadi basta sollevare leggermente un lato del telefono e riappoggiarlo: il dado cade verso il lato più basso, rimbalza e si posa."
+    "In carica Nothing OS usa lo scuotimento per mostrare la batteria: gli oracoli si usano con la pressione lunga, e per i dadi basta sollevare leggermente un lato del telefono e riappoggiarlo: il dado cade verso il lato più basso, rimbalza e si posa."
    ],
    [
     "Heading",
@@ -90,7 +90,7 @@ const TESTI = {
    [
     "Row",
     "MAH",
-    "La domanda era sbagliata, o c'è una svolta che non ti aspetti. Il vapore si dirada e il fuoco lascia un simbolo: leggilo come la svolta, oppure fai un'altra domanda."
+    "La domanda era sbagliata, o c'è una svolta inaspettata. Il vapore si dirada e il fuoco lascia un simbolo: leggilo come la svolta, oppure fai un'altra domanda."
    ],
    [
     "Row",
@@ -108,9 +108,9 @@ const TESTI = {
    ],
    [
     "Example",
-    "La porta del pianoforte è chiusa a chiave?",
+    "La buca delle lettere è aperta?",
     "SÌ, MA…",
-    "La serratura canta. Se la forzi suonerà un valzer, e tutta la casa saprà che sei entrato."
+    "La serratura canta. Se la apri suonerà un valzer, e tutta la casa saprà che stai rubando la corrispondenza."
    ],
    [
     "Heading",
@@ -135,7 +135,7 @@ const TESTI = {
    ],
    [
     "Para",
-    "Per le domande aperte, quelle a cui non basta un sì o un no: chi è, cosa trovo, cosa succede adesso. La fiammella che brucia la carta, il fuoco la consuma e resta un simbolo."
+    "Per le domande aperte, quelle a cui non basta un sì o un no: chi è, cosa trovo, cosa succede adesso. La fiammella brucia la carta, il fuoco la consuma e resta un simbolo a suggestionare."
    ],
    [
     "Para",
@@ -146,14 +146,6 @@ const TESTI = {
     "Dove ho lasciato la chiave di casa?",
     "la chiave",
     "Ce l'avevi addosso. Da quanto tempo la cerchi, e cos'altro ti porti dietro senza saperlo?"
-   ],
-   [
-    "Heading",
-    "Il fuoco"
-   ],
-   [
-    "Para",
-    "Il fuoco è il motore di questo oracolo: il calore che fa nascere e che manda in cenere. Quello che resta dopo l'incendio può essere un dono o un danno; a volte è una svolta, a volte una ferita."
    ],
    [
     "Heading",
@@ -182,7 +174,7 @@ const TESTI = {
     "Example",
     "Cosa c'è oltre il ponte di vetro?",
     "le nuvole",
-    "Una, poi due. Un villaggio sospeso dove il buio si vende a peso; OPPURE, solo nebbia bassa, e qualcosa che ci cammina dentro senza far rumore."
+    "Nebbia bassa, e qualcosa che ci cammina dentro senza far rumore."
    ],
    [
     "Chapter",
@@ -195,7 +187,7 @@ const TESTI = {
    ],
    [
     "Para",
-    "Ogni dado ha la sua sagoma. Il risultato massimo accende il contorno; l'1 lascia la sagoma vuota."
+    "Il risultato massimo accende il contorno; l'1 lascia la sagoma vuota."
    ],
    [
     "Chapter",
@@ -210,13 +202,13 @@ const TESTI = {
     "Example",
     "Trovo un riparo per la notte?",
     "SÌ, MA…",
-    "Una capanna su palafitte che cammina piano verso est. Dentro, una minestra che si raffredda da sola, con educazione."
+    "Una capanna su palafitte. Dentro, una minestra che si raffredda da sola, con educazione."
    ],
    [
     "Example",
     "Chi vive qui?",
     "la sedia",
-    "Una sola, rivolta verso la finestra. Qualcuno che aspetta, da molto tempo."
+    "Una sola persona, rivolta verso la finestra. Qualcuno che aspetta, da molto tempo."
    ],
    [
     "Example",
@@ -277,11 +269,11 @@ const TESTI = {
    ],
    [
     "Para",
-    "Dice: hold the button on the back to change die. Turn the phone over and shake it like a dice cup: it tumbles while you shake, and when you stop it bounces on the felt and settles."
+    "Dice: hold the button on the back to change die. Turn the phone over and shake it like a dice cup: it tumbles while you shake, and when you stop it bounces on the table and settles."
    ],
    [
     "Para",
-    "While charging, Nothing keeps shaking for the battery: use the oracles with a long press, and roll the die by lifting one edge of the phone slightly and setting it back down: the die falls towards the lower side, bounces and settles."
+    "While charging, Nothing OS keeps shaking for the battery: use the oracles with a long press, and roll the die by lifting one edge of the phone slightly and setting it back down: the die falls towards the lower side, bounces and settles."
    ],
    [
     "Heading",
@@ -317,7 +309,7 @@ const TESTI = {
    [
     "Row",
     "MEH",
-    "Either the question was wrong, or there's a twist you didn't see coming. The steam clears and the fire leaves a symbol: read it as the twist, or ask something else."
+    "Either the question was wrong, or there's an unexpected twist. The steam clears and the fire leaves a symbol: read it as the twist, or ask something else."
    ],
    [
     "Row",
@@ -335,9 +327,9 @@ const TESTI = {
    ],
    [
     "Example",
-    "Is the piano's door locked?",
+    "Is the letterbox open?",
     "YES, BUT…",
-    "The lock sings. Force it and it'll play a waltz, and the whole house will know you're in."
+    "The lock sings. Open it and it'll play a waltz, and the whole house will know you're stealing the post."
    ],
    [
     "Heading",
@@ -362,7 +354,7 @@ const TESTI = {
    ],
    [
     "Para",
-    "For open questions, the ones a yes or no can't answer: who is it, what do I find, what happens now. The little flame catches the paper, the fire eats it away and a symbol is left behind."
+    "For open questions, the ones a yes or no can't answer: who is it, what do I find, what happens now. The little flame catches the paper, the fire eats it away and a symbol is left behind to stir your imagination."
    ],
    [
     "Para",
@@ -373,14 +365,6 @@ const TESTI = {
     "Where did I leave the house key?",
     "the key",
     "You had it on you all along. How long have you been looking for it, and what else are you carrying around without knowing?"
-   ],
-   [
-    "Heading",
-    "The fire"
-   ],
-   [
-    "Para",
-    "Fire is what drives this oracle: the heat that brings things to life and burns them to ash. Whatever survives the blaze may be a gift or a loss; sometimes a turning point, sometimes a wound."
    ],
    [
     "Heading",
@@ -409,7 +393,7 @@ const TESTI = {
     "Example",
     "What lies beyond the glass bridge?",
     "the clouds",
-    "One, then two. A village hanging in the air where darkness is sold by weight; OR, just low mist, and something moving through it without a sound."
+    "Low mist, and something moving through it without a sound."
    ],
    [
     "Chapter",
@@ -422,7 +406,7 @@ const TESTI = {
    ],
    [
     "Para",
-    "Each die has its own silhouette. The highest roll lights up its edge; a 1 leaves the shape hollow."
+    "The highest roll lights up its edge; a 1 leaves the shape hollow."
    ],
    [
     "Chapter",
@@ -437,13 +421,13 @@ const TESTI = {
     "Example",
     "Do I find shelter for the night?",
     "YES, BUT…",
-    "A hut on stilts, slowly walking east. Inside, a soup that cools itself down, very politely."
+    "A hut on stilts. Inside, a soup that cools itself down, very politely."
    ],
    [
     "Example",
     "Who lives here?",
     "the chair",
-    "Just the one, facing the window. Someone who has been waiting a very long time."
+    "A single person, facing the window. Someone who has been waiting a very long time."
    ],
    [
     "Example",
@@ -508,10 +492,10 @@ const TESTI = {
    "gestureAuto": "Automatico",
    "gestureShake": "Scuoti",
    "gestureTilt": "Inclina",
-   "gestureHelp": "Scuoti: telefono a faccia in giù, scuoti e fermati. Inclina: a faccia in giù, solleva leggermente un lato e riappoggialo, e il dado cade verso il lato più basso. In carica Nothing usa lo scuotimento per mostrare la batteria: Automatico passa da solo a Inclina quando in carica.",
+   "gestureHelp": "Scuoti: telefono a faccia in giù, scuoti e fermati. Inclina: a faccia in giù, solleva leggermente un lato e riappoggialo, e il dado cade verso il lato più basso. In carica Nothing OS usa lo scuotimento per mostrare la batteria: Automatico passa da solo a Inclina quando in carica.",
    "proTitle": "Phone (4a) Pro",
    "proBody": "Sul retro i tre strumenti si usano scuotendo il telefono a faccia in giù. Scegli quale mostrare in Impostazioni › Glyph Interface › Flip to Glyph › Always-on Glyph Toy. Il dado si sceglie qui nell'app. Con l'app aperta, il retro ripete lo schermo.",
-   "soundsTitle": "Suoni dei Glyph Toy",
+   "soundsTitle": "Suoni dei Glyph Toys",
    "soundsOn": "Attivi",
    "soundsOff": "Spenti",
    "soundsHelp": "Vapore, fuoco e dadi sul retro. Nell'app i suoni seguono il volume del telefono."
@@ -538,10 +522,10 @@ const TESTI = {
    "gestureAuto": "Auto",
    "gestureShake": "Shake",
    "gestureTilt": "Tilt",
-   "gestureHelp": "Shake: phone face down, shake and stop. Tilt: face down, lift one edge slightly and set it back down, and the die falls towards the lower side. While charging Nothing uses shaking to show the battery: Auto switches to Tilt by itself.",
+   "gestureHelp": "Shake: phone face down, shake and stop. Tilt: face down, lift one edge slightly and set it back down, and the die falls towards the lower side. While charging Nothing OS uses shaking to show the battery: Auto switches to Tilt by itself.",
    "proTitle": "Phone (4a) Pro",
    "proBody": "On the back, the three tools are used by shaking the phone face down. Choose which one to show in Settings › Glyph Interface › Flip to Glyph › Always-on Glyph Toy. Pick the die here in the app. With the app open, the back mirrors the screen.",
-   "soundsTitle": "Glyph Toy sounds",
+   "soundsTitle": "Sounds of the Glyph Toys",
    "soundsOn": "On",
    "soundsOff": "Off",
    "soundsHelp": "Steam, fire and dice on the back. In the app, sounds follow the phone volume."
@@ -549,7 +533,7 @@ const TESTI = {
  },
  "credits": {
   "it": [
-   "Sorte · © 2026 Mattia Giordano. Ideazione, simboli, disegni, testi e suoni.",
+   "Sorte · © 2026 Mattia Giordano. Ideazione, sviluppo, disegni, testi e suoni.",
    "I simboli dell'oracolo aperto vengono dai disegni di Mattia Giordano e dal suo mazzo oracolare personale, che esiste come oggetto fisico.",
    "Simboli, testi e suoni: licenza CC BY-NC-ND 4.0. Puoi condividerli citando l'autore; non puoi modificarli né usarli a scopo commerciale.",
    "Codice open source (licenza MIT).",
@@ -557,7 +541,7 @@ const TESTI = {
    "Glyph Matrix SDK © Nothing Technology Ltd. App indipendente, non affiliata a Nothing."
   ],
   "en": [
-   "Sorte · © 2026 Mattia Giordano. Concept, symbols, drawings, texts and sounds.",
+   "Sorte · © 2026 Mattia Giordano. Concept, development, drawings, texts and sounds.",
    "The open oracle symbols come from the drawings of Mattia Giordano and from his personal oracle deck, which exists as a physical object.",
    "Symbols, texts and sounds: CC BY-NC-ND 4.0 licence. You may share them crediting the author; you may not modify them or use them commercially.",
    "Open source code (MIT license).",

@@ -495,7 +495,19 @@ class MainActivity : ComponentActivity() {
                     }
                     is Block.Heading -> Text(b.text.uppercase(), style = T.label, color = c.text,
                         modifier = Modifier.padding(top = 14.dp))
-                    is Block.Para -> Text(b.text, style = T.body, color = c.text)
+                    is Block.Para -> {
+                        // l'indirizzo della versione web è un link vero, sottolineato
+                        val url = "mattiagiordano27.github.io/sorte/app"
+                        val k = b.text.indexOf(url)
+                        if (k < 0) Text(b.text, style = T.body, color = c.text)
+                        else Text(androidx.compose.ui.text.buildAnnotatedString {
+                            append(b.text.substring(0, k))
+                            withLink(androidx.compose.ui.text.LinkAnnotation.Url("https://$url/",
+                                androidx.compose.ui.text.TextLinkStyles(androidx.compose.ui.text.SpanStyle(
+                                    textDecoration = androidx.compose.ui.text.style.TextDecoration.Underline)))) { append(url) }
+                            append(b.text.substring(k + url.length))
+                        }, style = T.body, color = c.text)
+                    }
                     is Block.Row -> Row(
                         Modifier.fillMaxWidth().border(1.dp, c.line, RoundedCornerShape(14.dp)).padding(14.dp),
                         verticalAlignment = Alignment.Top,

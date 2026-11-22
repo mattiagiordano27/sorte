@@ -30,13 +30,13 @@ data class UiText(
             gestureTitle = "Lancio dei dadi sul retro",
             gestureAuto = "Automatico", gestureShake = "Scuoti", gestureTilt = "Inclina",
             gestureHelp = "Scuoti: telefono a faccia in giù, scuoti e fermati. Inclina: a faccia in giù, solleva " +
-                "leggermente un lato e riappoggialo, e il dado cade verso il lato più basso. In carica Nothing usa lo " +
+                "leggermente un lato e riappoggialo, e il dado cade verso il lato più basso. In carica Nothing OS usa lo " +
                 "scuotimento per mostrare la batteria: Automatico passa da solo a Inclina quando in carica.",
             proTitle = "Phone (4a) Pro",
             proBody = "Sul retro i tre strumenti si usano scuotendo il telefono a faccia in giù. Scegli quale mostrare in " +
                 "Impostazioni › Glyph Interface › Flip to Glyph › Always-on Glyph Toy. Il dado si sceglie qui nell'app. " +
                 "Con l'app aperta, il retro ripete lo schermo.",
-            soundsTitle = "Suoni dei Glyph Toy", soundsOn = "Attivi", soundsOff = "Spenti",
+            soundsTitle = "Suoni dei Glyph Toys", soundsOn = "Attivi", soundsOff = "Spenti",
             soundsHelp = "Vapore, fuoco e dadi sul retro. Nell'app i suoni seguono il volume del telefono.",
         )
         private val EN = UiText(
@@ -54,13 +54,13 @@ data class UiText(
             gestureTitle = "Rolling dice on the back",
             gestureAuto = "Auto", gestureShake = "Shake", gestureTilt = "Tilt",
             gestureHelp = "Shake: phone face down, shake and stop. Tilt: face down, lift one edge slightly " +
-                "and set it back down, and the die falls towards the lower side. While charging Nothing uses shaking to show the battery: Auto switches " +
+                "and set it back down, and the die falls towards the lower side. While charging Nothing OS uses shaking to show the battery: Auto switches " +
                 "to Tilt by itself.",
             proTitle = "Phone (4a) Pro",
             proBody = "On the back, the three tools are used by shaking the phone face down. Choose which one to show in " +
                 "Settings › Glyph Interface › Flip to Glyph › Always-on Glyph Toy. Pick the die here in the app. " +
                 "With the app open, the back mirrors the screen.",
-            soundsTitle = "Glyph Toy sounds", soundsOn = "On", soundsOff = "Off",
+            soundsTitle = "Sounds of the Glyph Toys", soundsOn = "On", soundsOff = "Off",
             soundsHelp = "Steam, fire and dice on the back. In the app, sounds follow the phone volume.",
         )
     }

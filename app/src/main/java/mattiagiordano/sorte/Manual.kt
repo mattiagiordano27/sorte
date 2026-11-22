@@ -72,8 +72,8 @@ object Manual {
             "interpretare o con un tiro di dado."),
         Block.Rule("Gioco di ruolo, anche in solitaria: fa da master quando non c'è."),
         Block.Rule("Scrittura creativa: quando la storia si blocca, chiedi cosa succede e lascia che un simbolo ti porti altrove."),
-        Block.Rule("Divinazione e domande del giorno: una domanda, una risposta, per poi meditarci su."),
-        Block.Rule("Decisioni e giochi al tavolo: un dado, uno spareggio, una svolta."),
+        Block.Rule("Divinazione e domande del giorno: una domanda, una risposta, per meditarci su."),
+        Block.Rule("Decisioni e giochi da tavolo: un dado, uno spareggio, una svolta."),
 
         Block.Chapter("I", "Istruzioni"),
         Block.Heading("Nell'app"),
@@ -81,11 +81,11 @@ object Manual {
             "Per i dadi, scegli il tipo coi pulsanti sotto la matrice."),
         Block.Para("Sorte c'è anche nel browser, per iPhone, iPad e qualsiasi computer: mattiagiordano27.github.io/sorte/app."),
         Block.Heading("Sul retro · Nothing Phone (3)"),
-        Block.Para("I tre strumenti sono Glyph Toy. Pressione breve sul Glyph Button per sceglierli, pressione lunga " +
+        Block.Para("I tre strumenti sono Glyph Toys. Pressione breve sul Glyph Button per sceglierli, pressione lunga " +
             "per usarli. Puoi anche scuotere il telefono a faccia in giù."),
         Block.Para("Dadi: tieni premuto il pulsante sul retro per cambiare dado. Capovolgi il telefono e scuotilo come " +
-            "un bicchiere di dadi: finché scuoti rotola, quando ti fermi rimbalza sul feltro e si posa."),
-        Block.Para("In carica Nothing usa lo scuotimento per mostrare la batteria: gli oracoli si usano con la pressione " +
+            "un bicchiere di dadi: finché scuoti rotola, quando ti fermi rimbalza sul tavolo e si posa."),
+        Block.Para("In carica Nothing OS usa lo scuotimento per mostrare la batteria: gli oracoli si usano con la pressione " +
             "lunga, e per i dadi basta sollevare leggermente un lato del telefono e riappoggiarlo: il dado cade verso il " +
             "lato più basso, rimbalza e si posa."),
         Block.Heading("I widget"),
@@ -100,14 +100,14 @@ object Manual {
             "salivano dalla terra."),
         Block.Row("NO", "No, senza riserve."),
         Block.Row("NO, MA…", "No, ma qualcosa attenua il colpo: un'alternativa, un indizio, un piccolo vantaggio."),
-        Block.Row("MAH", "La domanda era sbagliata, o c'è una svolta che non ti aspetti. Il vapore si dirada e il " +
+        Block.Row("MAH", "La domanda era sbagliata, o c'è una svolta inaspettata. Il vapore si dirada e il " +
             "fuoco lascia un simbolo: leggilo come la svolta, oppure fai un'altra domanda."),
         Block.Row("SÌ, MA…", "Sì, ma c'è un prezzo, una complicazione, un dettaglio che non torna."),
         Block.Row("SÌ", "Sì, senza riserve."),
         Block.Para("Il «ma» arriva dopo un respiro: finché non compare, non sai se la risposta è netta. Cosa viene " +
             "dopo lo decidi tu: deve cambiare qualcosa, senza annullare la risposta."),
-        Block.Example("La porta del pianoforte è chiusa a chiave?", "SÌ, MA…",
-            "La serratura canta. Se la forzi suonerà un valzer, e tutta la casa saprà che sei entrato."),
+        Block.Example("La buca delle lettere è aperta?", "SÌ, MA…",
+            "La serratura canta. Se la apri suonerà un valzer, e tutta la casa saprà che stai rubando la corrispondenza."),
         Block.Heading("Regole d'oro"),
         Block.Rule("Non ripetere la stessa domanda sperando in un'altra risposta. La storia va avanti da lì."),
         Block.Rule("Chiedi solo quello che non sai. Se la risposta è ovvia, decidila tu."),
@@ -115,14 +115,11 @@ object Manual {
 
         Block.Chapter("III", "L'Oracolo aperto"),
         Block.Para("Per le domande aperte, quelle a cui non basta un sì o un no: chi è, cosa trovo, cosa succede adesso. La " +
-            "fiammella che brucia la carta, il fuoco la consuma e resta un simbolo."),
+            "fiammella brucia la carta, il fuoco la consuma e resta un simbolo a suggestionare."),
         Block.Para("Il simbolo non ha un significato fisso. Leggilo alla lettera, come metafora o come stato d'animo. " +
             "Spesso il primo pensiero è quello buono."),
         Block.Example("Dove ho lasciato la chiave di casa?", "la chiave",
             "Ce l'avevi addosso. Da quanto tempo la cerchi, e cos'altro ti porti dietro senza saperlo?"),
-        Block.Heading("Il fuoco"),
-        Block.Para("Il fuoco è il motore di questo oracolo: il calore che fa nascere e che manda in cenere. Quello che " +
-            "resta dopo l'incendio può essere un dono o un danno; a volte è una svolta, a volte una ferita."),
         Block.Heading("Da dove vengono i simboli"),
         Block.Para("I simboli sono il mazzo oracolare di Mattia Giordano, artista che disegna a puntini: immagini che " +
             "da lontano scompaiono e si rivelano solo a chi si avvicina."),
@@ -135,18 +132,18 @@ object Manual {
             "non ne conosce la storia. Sulla matrice i puntini diventano luci: lo stesso disegno, un punto alla volta."),
         Block.Rule("Leggi un simbolo come un oggetto ritrovato in un cassetto: cosa ti ricorda, adesso, dentro questa scena?"),
         Block.Example("Cosa c'è oltre il ponte di vetro?", "le nuvole",
-            "Una, poi due. Un villaggio sospeso dove il buio si vende a peso; OPPURE, solo nebbia bassa, e qualcosa che ci cammina dentro senza far rumore."),
+            "Nebbia bassa, e qualcosa che ci cammina dentro senza far rumore."),
 
         Block.Chapter("IV", "I dadi"),
         Block.Para("Dei dadi d4, d6, d8, d10, d12, d20 e d100."),
-        Block.Para("Ogni dado ha la sua sagoma. Il risultato massimo accende il contorno; l'1 lascia la sagoma vuota."),
+        Block.Para("Il risultato massimo accende il contorno; l'1 lascia la sagoma vuota."),
 
         Block.Chapter("V", "Un esempio di gioco"),
         Block.Para("Sei una cartografa che attraversa la Prateria Lilla per tracciarne i confini, che cambiano ogni martedì."),
         Block.Example("Trovo un riparo per la notte?", "SÌ, MA…",
-            "Una capanna su palafitte che cammina piano verso est. Dentro, una minestra che si raffredda da sola, con educazione."),
+            "Una capanna su palafitte. Dentro, una minestra che si raffredda da sola, con educazione."),
         Block.Example("Chi vive qui?", "la sedia",
-            "Una sola, rivolta verso la finestra. Qualcuno che aspetta, da molto tempo."),
+            "Una sola persona, rivolta verso la finestra. Qualcuno che aspetta, da molto tempo."),
         Block.Example("Tornerà stanotte?", "MAH + la porta",
             "Tornerà, ma non da dove te lo aspetti: la capanna ha una seconda porta che fino a ieri non c'era."),
         Block.Para("Nessuna di queste risposte era scritta da qualche parte. L'oracolo ti ha dato una spinta; la storia " +
@@ -169,8 +166,8 @@ object Manual {
         Block.Para("The three tools are Glyph Toys. A short press on the Glyph Button cycles through them, a long press " +
             "uses them. You can also shake the phone face down."),
         Block.Para("Dice: hold the button on the back to change die. Turn the phone over and shake it like a dice cup: " +
-            "it tumbles while you shake, and when you stop it bounces on the felt and settles."),
-        Block.Para("While charging, Nothing keeps shaking for the battery: use the oracles with a long press, and roll " +
+            "it tumbles while you shake, and when you stop it bounces on the table and settles."),
+        Block.Para("While charging, Nothing OS keeps shaking for the battery: use the oracles with a long press, and roll " +
             "the die by lifting one edge of the phone slightly and setting it back down: the die falls towards the lower " +
             "side, bounces and settles."),
         Block.Heading("The widgets"),
@@ -185,14 +182,14 @@ object Manual {
             "vapours rising from the earth."),
         Block.Row("NO", "No, plain and simple."),
         Block.Row("NO, BUT…", "No, but something softens the blow: another way, a clue, a small advantage."),
-        Block.Row("MEH", "Either the question was wrong, or there's a twist you didn't see coming. The steam clears and " +
+        Block.Row("MEH", "Either the question was wrong, or there's an unexpected twist. The steam clears and " +
             "the fire leaves a symbol: read it as the twist, or ask something else."),
         Block.Row("YES, BUT…", "Yes, but at a price: a complication, a detail that doesn't quite add up."),
         Block.Row("YES", "Yes, plain and simple."),
         Block.Para("The “but” arrives after a breath: until it does, you can't tell whether the answer is clean. " +
             "What follows it is yours to decide: it should change something without undoing the answer."),
-        Block.Example("Is the piano's door locked?", "YES, BUT…",
-            "The lock sings. Force it and it'll play a waltz, and the whole house will know you're in."),
+        Block.Example("Is the letterbox open?", "YES, BUT…",
+            "The lock sings. Open it and it'll play a waltz, and the whole house will know you're stealing the post."),
         Block.Heading("Golden rules"),
         Block.Rule("Don't ask the same question twice hoping for a different answer. The story carries on from there."),
         Block.Rule("Only ask what you don't know. If the answer's obvious, decide it yourself."),
@@ -200,14 +197,11 @@ object Manual {
 
         Block.Chapter("III", "The Open Oracle"),
         Block.Para("For open questions, the ones a yes or no can't answer: who is it, what do I find, what happens now. The little " +
-            "flame catches the paper, the fire eats it away and a symbol is left behind."),
+            "flame catches the paper, the fire eats it away and a symbol is left behind to stir your imagination."),
         Block.Para("A symbol has no fixed meaning. Read it literally, as a metaphor or as a mood. Your first thought " +
             "is usually the right one."),
         Block.Example("Where did I leave the house key?", "the key",
             "You had it on you all along. How long have you been looking for it, and what else are you carrying around without knowing?"),
-        Block.Heading("The fire"),
-        Block.Para("Fire is what drives this oracle: the heat that brings things to life and burns them to ash. " +
-            "Whatever survives the blaze may be a gift or a loss; sometimes a turning point, sometimes a wound."),
         Block.Heading("Where the symbols come from"),
         Block.Para("The symbols are Mattia Giordano's oracle deck. He is an artist who draws in dots: images that " +
             "vanish from a distance and only reveal themselves as you draw closer."),
@@ -220,19 +214,18 @@ object Manual {
             "On the matrix the dots become points of light: the same drawing, one dot at a time."),
         Block.Rule("Read a symbol as you would an object found at the back of a drawer: what does it bring to mind, here, in this scene?"),
         Block.Example("What lies beyond the glass bridge?", "the clouds",
-            "One, then two. A village hanging in the air where darkness is sold by weight; OR, just low mist, and " +
-            "something moving through it without a sound."),
+            "Low mist, and something moving through it without a sound."),
 
         Block.Chapter("IV", "The dice"),
         Block.Para("Dice: d4, d6, d8, d10, d12, d20 and d100."),
-        Block.Para("Each die has its own silhouette. The highest roll lights up its edge; a 1 leaves the shape hollow."),
+        Block.Para("The highest roll lights up its edge; a 1 leaves the shape hollow."),
 
         Block.Chapter("V", "An example of play"),
         Block.Para("You're a cartographer crossing the Lilac Prairie to map its borders, which shift every Tuesday."),
         Block.Example("Do I find shelter for the night?", "YES, BUT…",
-            "A hut on stilts, slowly walking east. Inside, a soup that cools itself down, very politely."),
+            "A hut on stilts. Inside, a soup that cools itself down, very politely."),
         Block.Example("Who lives here?", "the chair",
-            "Just the one, facing the window. Someone who has been waiting a very long time."),
+            "A single person, facing the window. Someone who has been waiting a very long time."),
         Block.Example("Will he come back tonight?", "MEH + the door",
             "He'll be back, just not the way you expect: the hut has a second door that wasn't there yesterday."),
         Block.Para("None of these answers were written down anywhere. The oracle gave you a nudge; the story is all yours."),

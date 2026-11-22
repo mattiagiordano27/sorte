@@ -41,7 +41,7 @@
 ### Glyph Toys
 - 🌫️ **Closed Oracle.** For questions you can answer with a yes or a no: a small cloud falls onto hot stones, turns to rain, then to steam, and rises again with the answer.
 - 🔥 **Open Oracle.** A little flame burns the paper, and what the fire leaves behind is a symbol to read.
-- 🎲 **Dice.** From d4 to d100, drawn as silhouettes that tumble and settle on felt.
+- 🎲 **Dice.** From d4 to d100, drawn as silhouettes that tumble and settle on the table.
 
 ### Oracle Deck
 - 🃏 Twelve symbols from Mattia Giordano's personal oracle deck, drawn in dots.
@@ -67,10 +67,10 @@
 
 ### Funzioni · Versione 0.27
 
-#### Glyph Toy
+#### Glyph Toys
 - 🌫️ **Oracolo chiuso.** Per le domande a cui si risponde sì o no: una piccola nuvola cade sulle pietre calde, si fa pioggia, poi vapore, e risale con la risposta.
 - 🔥 **Oracolo aperto.** Una fiammella brucia la carta, e quello che il fuoco lascia è un simbolo da leggere.
-- 🎲 **Dadi.** Dal d4 al d100, disegnati come sagome che rotolano e si posano sul feltro.
+- 🎲 **Dadi.** Dal d4 al d100, disegnati come sagome che rotolano e si posano sul tavolo.
 
 #### Il mazzo
 - 🃏 Dodici simboli dal mazzo oracolare personale di Mattia Giordano, disegnati a puntini.
@@ -86,7 +86,7 @@
 #### Ovunque
 - 📱 App per ogni Android 10+, in italiano e in inglese.
 - 🌐 Una versione web per iPhone, iPad e qualsiasi computer. Aggiungila alla schermata Home e funziona anche offline.
-- ✨ Glyph Toy always-on per Phone (4a) Pro, che si usano scuotendo.
+- ✨ Glyph Toys always-on per Phone (4a) Pro, che si usano scuotendo.
 
 #### Privacy
 - 🔒 Nessun dato raccolto né venduto, niente pubblicità né tracciamento. Funziona offline.
@@ -168,7 +168,7 @@ Development tools: `tools/editor.py` (icon editor for the 25×25 matrix), `tools
 
 ## Credits and licences
 
-- Concept, symbols, drawings, texts and sounds: © 2026 [Mattia Giordano](https://www.instagram.com/mattiogiordana/).
+- Concept, development, drawings, texts and sounds: © 2026 [Mattia Giordano](https://www.instagram.com/mattiogiordana/).
 - Code: MIT licence (see `LICENSE`).
 - Symbols (`app/src/main/assets/icone/`), texts and sounds: [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/). Share with credit; no modifications, no commercial use.
 - Fonts Doto and Geist, SIL Open Font License 1.1 (`app/src/main/assets/licenze/OFL-Doto.txt`, `docs/fonts/`).

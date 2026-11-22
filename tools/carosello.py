@@ -71,7 +71,7 @@ TEXT = {
         ("Glyph Toy · 03", "Dice", "d4 to d100 as silhouettes. Shake it face down; while charging, lift one edge and set it back down.", "dice"),
         ("Symbols", "The deck", "Twelve cards from Mattia Giordano's personal oracle deck, drawn in dots.", "symbols"),
         ("Everywhere", "Widgets", "Three round widgets on Android, Glyph Toys on Nothing Phone (3), and a web version for iPhone, iPad and any computer.", "widgets"),
-        ("Free", "Open source", "Free on GitHub and in your browser. Concept, symbols and sounds by Mattia Giordano.", "free"),
+        ("Free", "Open source", "Free on GitHub and in your browser. Concept, development, drawings and sounds by Mattia Giordano.", "free"),
     ],
     "it": [
         ("Sorte 0.27", "Sorte", "Un oracolo per scrittura creativa, divinazione e gioco di ruolo.", "cover"),
@@ -79,8 +79,8 @@ TEXT = {
         ("Glyph Toy · 02", "Oracolo aperto", "Una fiammella brucia la carta. Quello che il fuoco lascia è un simbolo da leggere.", "open"),
         ("Glyph Toy · 03", "Dadi", "Dal d4 al d100, come sagome. Scuoti a faccia in giù; in carica, sollevane un lato e riappoggialo.", "dice"),
         ("Simboli", "Il mazzo", "Dodici carte del mazzo oracolare personale di Mattia Giordano, disegnate a puntini.", "symbols"),
-        ("Ovunque", "Widget", "Tre widget tondi su Android, Glyph Toy su Nothing Phone (3) e una versione web per iPhone, iPad e qualsiasi computer.", "widgets"),
-        ("Gratis", "Open source", "Gratis su GitHub e nel browser. Ideazione, simboli e suoni di Mattia Giordano.", "free"),
+        ("Ovunque", "Widget", "Tre widget tondi su Android, Glyph Toys su Nothing Phone (3) e una versione web per iPhone, iPad e qualsiasi computer.", "widgets"),
+        ("Gratis", "Open source", "Gratis su GitHub e nel browser. Ideazione, sviluppo, disegni e suoni di Mattia Giordano.", "free"),
     ],
 }
 for lang, slides in TEXT.items():
