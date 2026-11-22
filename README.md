@@ -161,4 +161,4 @@ Development tools: `tools/editor.py` (icon editor for the 25×25 matrix), `tools
 - Font Doto, SIL Open Font License 1.1 (`app/src/main/assets/licenze/OFL-Doto.txt`).
 - Glyph Matrix SDK © Nothing Technology Ltd. Independent app, not affiliated with Nothing.
 
-<p align="center"><br><img src="docs/media/icon.png" width="48" alt=""><br><sub>Sorte 0.27 · Mattia Giordano</sub></p>
+<p align="center"><br><img src="docs/media/icon.png" width="48" alt=""><br><sub>Sorte 0.27 · <a href="https://www.instagram.com/mattiogiordana/">Mattia Giordano</a></sub></p>
