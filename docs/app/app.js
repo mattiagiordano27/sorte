@@ -25,6 +25,8 @@ const WEB = {
     auto: 'Automatico',
     sounds: 'Suoni', on: 'Attivi', off: 'Spenti',
     soundsHelp: 'Vapore, fuoco e dadi. Meglio con le cuffie.',
+    shake: 'Scuoti per chiedere', shakeOnTxt: 'Attivo', shakeOffTxt: 'Spento',
+    shakeHelp: 'Su iPhone e iPad Safari chiede il permesso del movimento a ogni apertura: attivalo solo se vuoi chiedere scuotendo il telefono.',
     install: 'Installala come app',
     installSteps: [['iPhone e iPad', 'in Safari tocca Condividi, poi «Aggiungi alla schermata Home».'], ['Android', 'menu ⋮, poi «Installa app».'],
       ['Computer', 'in Chrome o Edge, l’icona di installazione nella barra degli indirizzi; su Mac anche Safari, File › Aggiungi al Dock.']], installNote: 'Una volta installata funziona anche offline.',
@@ -43,6 +45,8 @@ const WEB = {
     auto: 'Auto',
     sounds: 'Sounds', on: 'On', off: 'Off',
     soundsHelp: 'Steam, fire and dice. Best with headphones.',
+    shake: 'Shake to ask', shakeOnTxt: 'On', shakeOffTxt: 'Off',
+    shakeHelp: 'On iPhone and iPad, Safari asks for motion access every time you open Sorte: turn it on only if you want to ask by shaking the phone.',
     install: 'Install it as an app',
     installSteps: [['iPhone and iPad', 'in Safari tap Share, then “Add to Home Screen”.'], ['Android', 'menu ⋮, then “Install app”.'],
       ['Computer', 'in Chrome or Edge, the install icon in the address bar; on a Mac, also Safari, File › Add to Dock.']], installNote: 'Once installed it works offline too.',
@@ -55,6 +59,9 @@ const WEB = {
 };
 const wx = () => WEB[italian() ? 'it' : 'en'];
 const touch = matchMedia('(pointer:coarse)').matches;
+// iPhone e iPad: il movimento richiede un permesso, che Safari chiede di nuovo a ogni apertura
+const motionAsk = typeof DeviceMotionEvent !== 'undefined' && typeof DeviceMotionEvent.requestPermission === 'function';
+let shakeOn = Prefs.get('scuoti', !motionAsk);
 
 // ── suoni (Web Audio: partono subito, senza ritardo) ──
 const Sound = {
@@ -112,7 +119,9 @@ function fitCanvas() {
 function show(f) { frame = f; dirty = true; }
 (function loop() { if (dirty) { dirty = false; drawMatrix(canvas, frame); } requestAnimationFrame(loop); })();
 // iPhone: l'altezza davvero visibile (senza le barre di Safari), anche dopo la rotazione
-const setH = () => { document.documentElement.style.setProperty('--H', window.innerHeight + 'px'); fitCanvas(); };
+// altezza visibile: i browser moderni (iPhone compreso) la danno giusta con 100dvh; window.innerHeight solo per i vecchi,
+// perché su iPhone aperto dalla Home può valere meno dello schermo all'avvio e tagliare le schede in basso
+const setH = () => { if (!(window.CSS && CSS.supports('height', '100dvh'))) document.documentElement.style.setProperty('--H', window.innerHeight + 'px'); fitCanvas(); };
 addEventListener('resize', setH); addEventListener('orientationchange', () => setTimeout(setH, 250)); setH();
 
 // ── simboli dell'oracolo aperto ──
@@ -217,9 +226,11 @@ const Shake = {
       }
     } else if (this.shaking && now - this.last > 450) { this.shaking = false; holding = false; }
   },
+  listening: false,
   async enable() {
-    try { if (typeof DeviceMotionEvent !== 'undefined' && typeof DeviceMotionEvent.requestPermission === 'function') await DeviceMotionEvent.requestPermission(); } catch {}
-    addEventListener('devicemotion', e => this.on(e));
+    if (!shakeOn) return;
+    try { if (motionAsk) await DeviceMotionEvent.requestPermission(); } catch {}
+    if (!this.listening) { this.listening = true; addEventListener('devicemotion', e => { if (shakeOn) this.on(e); }); }
   },
 };
 
@@ -232,7 +243,8 @@ function renderPlay() {
   document.documentElement.lang = italian() ? 'it' : 'en';
   $('#tagline').textContent = t.tagline;
   $('#btnManual').setAttribute('aria-label', t.manual); $('#btnSettings').setAttribute('aria-label', t.settings);
-  $('#hint').textContent = touch ? [t.hintClosed, t.hintOpen, t.hintDice][mode] : [w.hintClosedDesk, w.hintOpenDesk, w.hintDiceDesk][mode];
+  const hint = touch ? [t.hintClosed, t.hintOpen, t.hintDice][mode] : [w.hintClosedDesk, w.hintOpenDesk, w.hintDiceDesk][mode];
+  $('#hint').textContent = (touch && !shakeOn) ? hint.replace(' o scuoti', '').replace(' or shake', '') : hint;
   $('#tabs').innerHTML = '';
   [t.closed, t.open, t.dice].forEach((label, i) => {
     const b = document.createElement('button'); b.className = 'tab label' + (mode === i ? ' sel' : ''); b.textContent = label;
@@ -302,6 +314,10 @@ function renderSettings() {
   h += `<div class="label muted">${esc(t.language)}</div>` + chips([['auto', w.auto], ['it', 'Italiano'], ['en', 'English']], lang, 'lang');
   h += `<div class="sect label muted">${esc(w.sounds)}</div>` + chips([['1', w.on], ['0', w.off]], Sound.on ? '1' : '0', 'snd');
   h += `<p class="muted">${esc(w.soundsHelp)}</p>`;
+  if (motionAsk) {
+    h += `<div class="sect label muted">${esc(w.shake)}</div>` + chips([['1', w.shakeOnTxt], ['0', w.shakeOffTxt]], shakeOn ? '1' : '0', 'shk');
+    h += `<p class="muted">${esc(w.shakeHelp)}</p>`;
+  }
   h += `<div class="sect label muted">${esc(w.install)}</div>` + w.installSteps.map(([d, t]) => `<div class="rule"><span><b>${esc(d)}</b>: ${esc(t)}</span></div>`).join('') + `<p class="muted">${esc(w.installNote)}</p>`;
   h += `<div class="sect label muted">${esc(w.android)}</div><p>${esc(w.androidBody)}</p>`;
   h += `<div class="chips"><a class="chip label" href="${LANDING}" target="_blank" rel="noopener">${esc(w.androidLink)} ↗</a></div>`;
@@ -315,6 +331,7 @@ function renderSettings() {
   h += `<div class="label muted" style="margin-top:10px">v${TESTI.version}</div>`;
   $('#settings .in').innerHTML = h;
   document.querySelectorAll('[data-lang]').forEach(b => b.onclick = () => { lang = b.dataset.lang; Prefs.set('lingua', lang); renderPlay(); renderSettings(); });
+  document.querySelectorAll('[data-shk]').forEach(b => b.onclick = () => { shakeOn = b.dataset.shk === '1'; Prefs.set('scuoti', shakeOn); if (shakeOn) Shake.enable(); renderPlay(); renderSettings(); });
   document.querySelectorAll('[data-snd]').forEach(b => b.onclick = () => { Sound.on = b.dataset.snd === '1'; Prefs.set('suoni', Sound.on); if (!Sound.on) Sound.stopAll(); renderSettings(); });
 }
 
