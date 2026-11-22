@@ -23,8 +23,8 @@ android {
         applicationId = "mattiagiordano.sorte"
         minSdk = 29
         targetSdk = 35
-        versionCode = 3
-        versionName = "0.27"
+        versionCode = 4
+        versionName = "0.27.1"
     }
 
     signingConfigs {

@@ -88,6 +88,7 @@
   /* installazione */
   #install h3.group{font-size:20px;font-weight:500;margin:34px 0 0;color:var(--text)}
   .steps{counter-reset:s;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+  .steps.two{grid-template-columns:repeat(2,1fr)}
   .steps div{background:var(--card-2);border-radius:20px;padding:22px;font-size:16px;line-height:1.5;color:var(--muted)}
   .steps div::before{counter-increment:s;content:counter(s,decimal-leading-zero);display:block;font-family:"Doto",monospace;
                      font-weight:900;font-size:34px;color:var(--text);margin-bottom:10px}
@@ -100,7 +101,7 @@
     .card{grid-template-columns:1fr;padding:26px}
     .card.flip > :first-child{order:0}
     .deck{grid-template-columns:repeat(3,1fr)}
-    .steps{grid-template-columns:1fr}
+    .steps,.steps.two{grid-template-columns:1fr}
     header .dl{display:none}
     .pill{letter-spacing:.06em;padding:10px 14px}
   }
@@ -131,10 +132,9 @@
         <a class="pill" href="#open" data-en="Open Oracle" data-it="Oracolo aperto">Open Oracle</a>
         <a class="pill" href="#dice" data-en="Dice" data-it="Dadi">Dice</a>
         <a class="pill" href="#deck" data-en="The deck" data-it="Il mazzo">The deck</a>
-        <a class="pill" href="#widgets" data-en="Widgets" data-it="Widget">Widgets</a>
+        <a class="pill" href="#widgets" data-en="Android" data-it="Android">Android</a>
+        <a class="pill" href="#web" data-en="iPhone · iPad · computer" data-it="iPhone · iPad · computer">iPhone · iPad · computer</a>
         <a class="pill" href="#features" data-en="All features" data-it="Tutte le funzioni">All features</a>
-        <a class="pill" href="#install" data-en="Android" data-it="Android">Android</a>
-        <a class="pill" href="#web" data-en="iPhone · iPad · any computer" data-it="iPhone · iPad · ogni computer">iPhone · iPad · any computer</a>
         <a class="pill solid" href="https://github.com/mattiagiordano27/sorte/releases/latest" data-en="Download free" data-it="Scarica gratis">Download free</a>
         <a class="pill solid" href="https://mattiagiordano27.github.io/sorte/app/" data-en="Open in browser" data-it="Apri nel browser">Open in browser</a>
       </div>
@@ -207,30 +207,34 @@
   <section id="widgets">
     <div class="card" style="display:block">
       <div class="mono" data-en="Android" data-it="Android">Android</div>
-      <h2 class="dot" data-en="Widgets" data-it="Widget">Widgets</h2>
-      <p style="max-width:68ch" data-en="Three round widgets for your Android home screen: tap to ask. Sorte works as a regular app on any Android 10+, with Glyph Toys on Nothing Phone (3) and always-on toys on Phone (4a) Pro."
-         data-it="Tre widget tondi per la schermata Home di Android: tocca e chiedi. Sorte funziona come app su ogni Android 10+, con i Glyph Toy su Nothing Phone (3) e toy always-on su Phone (4a) Pro.">
-        Three round widgets for your Android home screen: tap to ask. Sorte works as a regular app on any Android 10+, with Glyph Toys on Nothing Phone (3) and always-on toys on Phone (4a) Pro.</p>
+      <h2 class="dot" data-en="App & widgets" data-it="App e widget">App &amp; widgets</h2>
+      <p style="max-width:68ch" data-en="Sorte is a free app for Android, with three round widgets for your home screen: tap one and ask."
+         data-it="Sorte è un'app gratuita per Android, con tre widget tondi per la schermata Home: ne tocchi uno e chiedi.">
+        Sorte is a free app for Android, with three round widgets for your home screen: tap one and ask.</p>
+      <p style="max-width:68ch" data-en="On Nothing Phone (3) and Phone (4a) Pro the three tools also live on the back as Glyph Toys, using the light matrix."
+         data-it="Su Nothing Phone (3) e Phone (4a) Pro i tre strumenti vivono anche sul retro come Glyph Toys, sfruttando la matrice luminosa.">
+        On Nothing Phone (3) and Phone (4a) Pro the three tools also live on the back as Glyph Toys, using the light matrix.</p>
       <div class="pills" style="margin-top:18px">
-        <span class="pill" data-en="Nothing Phone (3) · Glyph Toys" data-it="Nothing Phone (3) · Glyph Toy">Nothing Phone (3) · Glyph Toys</span>
-        <span class="pill" data-en="Phone (4a) Pro · always-on" data-it="Phone (4a) Pro · always-on">Phone (4a) Pro · always-on</span>
         <span class="pill" data-en="Android 10+ · app &amp; widgets" data-it="Android 10+ · app e widget">Android 10+ · app &amp; widgets</span>
+        <span class="pill" data-en="Nothing Phone (3) · Glyph Toys" data-it="Nothing Phone (3) · Glyph Toys">Nothing Phone (3) · Glyph Toys</span>
+        <span class="pill" data-en="Phone (4a) Pro · always-on" data-it="Phone (4a) Pro · always-on">Phone (4a) Pro · always-on</span>
         <span class="pill" data-en="English · Italiano" data-it="Italiano · English">English · Italiano</span>
       </div>
+      <p style="margin-top:22px"><a class="pill solid" href="https://github.com/mattiagiordano27/sorte/releases/latest" data-en="Download free" data-it="Scarica gratis">Download free</a></p>
     </div>
   </section>
 
   <section id="web">
     <div class="card">
       <div>
-        <div class="mono" data-en="Everywhere else" data-it="Ovunque">Everywhere else</div>
+        <div class="mono" data-en="iPhone · iPad · computer" data-it="iPhone · iPad · computer">iPhone · iPad · computer</div>
         <h2 class="dot" data-en="In your browser" data-it="Nel browser">In your browser</h2>
-        <p data-en="On iPhone, iPad and any computer, Mac, Windows or Linux, Sorte opens in the browser: the same three tools, the same animations and sounds. Tap or click the circle, or press the space bar. On iPhone you can also shake."
-           data-it="Su iPhone, iPad e qualsiasi computer, Mac, Windows o Linux, Sorte si apre nel browser: gli stessi tre strumenti, le stesse animazioni e gli stessi suoni. Tocca o clicca il tondo, oppure premi la barra spaziatrice. Su iPhone puoi anche scuotere.">
-          On iPhone, iPad and any computer, Mac, Windows or Linux, Sorte opens in the browser: the same three tools, the same animations and sounds. Tap or click the circle, or press the space bar. On iPhone you can also shake.</p>
-        <p data-en="Add it to your home screen: it opens full screen like an app and works offline too."
-           data-it="Aggiungila alla schermata Home: si apre a tutto schermo come un'app e funziona anche senza rete.">
-          Add it to your home screen: it opens full screen like an app and works offline too.</p>
+        <p data-en="On iPhone, iPad and any computer, Sorte opens in the browser, with the same three tools, animations and sounds. Tap or click the circle, or press the space bar; on iPhone you can also shake."
+           data-it="Su iPhone, iPad e qualsiasi computer Sorte si apre nel browser, con gli stessi tre strumenti, le stesse animazioni e gli stessi suoni. Tocca o clicca il tondo, oppure premi la barra spaziatrice; su iPhone puoi anche scuotere.">
+          On iPhone, iPad and any computer, Sorte opens in the browser, with the same three tools, animations and sounds. Tap or click the circle, or press the space bar; on iPhone you can also shake.</p>
+        <p data-en="Added to your home screen, it opens full screen like an app and works offline too."
+           data-it="Aggiunta alla schermata Home, si apre a tutto schermo come un'app e funziona anche offline.">
+          Added to your home screen, it opens full screen like an app and works offline too.</p>
         <p style="margin-top:22px"><a class="pill solid" href="https://mattiagiordano27.github.io/sorte/app/" data-en="Open Sorte" data-it="Apri Sorte">Open Sorte</a></p>
       </div>
       <img class="shot" src="media/web.png" alt="Sorte in the browser on a computer" loading="lazy">
@@ -284,7 +288,7 @@
         <h3>Ovunque</h3>
         <ul>
           <li><span>📱</span>App per ogni Android 10+, in italiano e in inglese.</li>
-          <li><span>🌐</span>Una versione web per iPhone, iPad e qualsiasi computer. Aggiungila alla schermata Home e funziona anche senza rete.</li>
+          <li><span>🌐</span>Una versione web per iPhone, iPad e qualsiasi computer. Aggiungila alla schermata Home e funziona anche offline.</li>
           <li><span>✨</span>Glyph Toy always-on per Phone (4a) Pro, che si usano scuotendo.</li>
         </ul>
       </div>
@@ -295,18 +299,15 @@
     <div class="mono" data-en="Install" data-it="Installa">Install</div>
     <h3 class="group" data-en="Android" data-it="Android">Android</h3>
     <div class="steps">
-      <div data-en="Download Sorte-0.27.apk from the GitHub release page." data-it="Scarica Sorte-0.27.apk dalla pagina delle release su GitHub.">Download Sorte-0.27.apk from the GitHub release page.</div>
-      <div data-en="Open the file and allow your browser to install apps." data-it="Apri il file e consenti al browser di installare app.">Open the file and allow your browser to install apps.</div>
-      <div data-en="On Nothing Phone (3): open Sorte › ··· › Add to Glyph Toys." data-it="Su Nothing Phone (3): apri Sorte › ··· › Aggiungi ai Glyph Toys.">On Nothing Phone (3): open Sorte › ··· › Add to Glyph Toys.</div>
+      <div data-en="Download Sorte-0.27.apk from the GitHub page." data-it="Scarica Sorte-0.27.apk dalla pagina di GitHub.">Download Sorte-0.27.apk from the GitHub page.</div>
+      <div data-en="Open it on your phone and allow the installation when asked." data-it="Aprilo sul telefono e consenti l'installazione quando te lo chiede.">Open it on your phone and allow the installation when asked.</div>
+      <div data-en="On Nothing Phone (3): in Sorte, tap ··· › Add to Glyph Toys. On any Android you can add the widgets from your home screen." data-it="Su Nothing Phone (3): in Sorte tocca ··· › Aggiungi ai Glyph Toys. Su ogni Android puoi aggiungere i widget dalla schermata Home.">On Nothing Phone (3): in Sorte, tap ··· › Add to Glyph Toys. On any Android you can add the widgets from your home screen.</div>
     </div>
     <p style="margin-top:22px"><a class="pill solid" href="https://github.com/mattiagiordano27/sorte/releases/latest" data-en="Download free" data-it="Scarica gratis">Download free</a></p>
-    <h3 class="group" data-en="iPhone, iPad and any computer" data-it="iPhone, iPad e qualsiasi computer">iPhone, iPad and any computer</h3>
-    <div class="steps">
-      <div data-en="Open mattiagiordano27.github.io/sorte/app in any browser." data-it="Apri mattiagiordano27.github.io/sorte/app in qualsiasi browser.">Open mattiagiordano27.github.io/sorte/app in any browser.</div>
-      <div data-en="Add it to your home screen. iPhone and iPad: Share › Add to Home Screen. Computer: the install icon in the address bar of Chrome or Edge; on a Mac, also Safari › File › Add to Dock."
-           data-it="Aggiungila alla schermata Home. iPhone e iPad: Condividi › Aggiungi alla schermata Home. Computer: l'icona di installazione nella barra degli indirizzi di Chrome o Edge; su Mac anche Safari › File › Aggiungi al Dock.">Add it to your home screen. iPhone and iPad: Share › Add to Home Screen. Computer: the install icon in the address bar of Chrome or Edge; on a Mac, also Safari › File › Add to Dock.</div>
-      <div data-en="Turn the sound on: steam, fire and dice are part of it. Once added, it works offline too."
-           data-it="Alza il volume: vapore, fuoco e dadi ne fanno parte. Una volta aggiunta, funziona anche senza rete.">Turn the sound on: steam, fire and dice are part of it. Once added, it works offline too.</div>
+    <h3 class="group" data-en="iPhone, iPad and computer" data-it="iPhone, iPad e computer">iPhone, iPad and computer</h3>
+    <div class="steps two">
+      <div data-en="Open mattiagiordano27.github.io/sorte/app in your browser." data-it="Apri mattiagiordano27.github.io/sorte/app nel browser.">Open mattiagiordano27.github.io/sorte/app in your browser.</div>
+      <div data-en="Add it to your home screen: on iPhone and iPad via Share › Add to Home Screen; on a computer via the install icon in Chrome or Edge, or on a Mac via Safari › File › Add to Dock. From then on it opens like an app, even offline." data-it="Aggiungila alla schermata Home: su iPhone e iPad da Condividi › Aggiungi alla schermata Home; sul computer dall'icona di installazione di Chrome o Edge, o su Mac da Safari › File › Aggiungi al Dock. Da lì si apre come un'app, anche offline.">Add it to your home screen: on iPhone and iPad via Share › Add to Home Screen; on a computer via the install icon in Chrome or Edge, or on a Mac via Safari › File › Add to Dock. From then on it opens like an app, even offline.</div>
     </div>
     <p style="margin-top:22px"><a class="pill solid" href="https://mattiagiordano27.github.io/sorte/app/" data-en="Open in browser" data-it="Apri nel browser">Open in browser</a></p>
   </section>

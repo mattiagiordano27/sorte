@@ -82,7 +82,7 @@
 
 #### Ovunque
 - 📱 App per ogni Android 10+, in italiano e in inglese.
-- 🌐 Una versione web per iPhone, iPad e qualsiasi computer. Aggiungila alla schermata Home e funziona anche senza rete.
+- 🌐 Una versione web per iPhone, iPad e qualsiasi computer. Aggiungila alla schermata Home e funziona anche offline.
 - ✨ Glyph Toy always-on per Phone (4a) Pro, che si usano scuotendo.
 
 </details>

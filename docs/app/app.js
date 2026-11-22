@@ -26,7 +26,7 @@ const WEB = {
     soundsHelp: 'Vapore, fuoco e dadi. Meglio con le cuffie.',
     install: 'Installala come app',
     installSteps: [['iPhone e iPad', 'in Safari tocca Condividi, poi «Aggiungi alla schermata Home».'], ['Android', 'menu ⋮, poi «Installa app».'],
-      ['Computer', 'in Chrome o Edge, l’icona di installazione nella barra degli indirizzi; su Mac anche Safari, File › Aggiungi al Dock.']], installNote: 'Una volta installata funziona anche senza rete.',
+      ['Computer', 'in Chrome o Edge, l’icona di installazione nella barra degli indirizzi; su Mac anche Safari, File › Aggiungi al Dock.']], installNote: 'Una volta installata funziona anche offline.',
     android: 'Su Android',
     androidBody: 'L’app per Android ha anche i widget, e su Nothing Phone (3) i tre strumenti vivono sul retro, sulla Glyph Matrix.',
     androidLink: 'Scarica l’app',

@@ -162,10 +162,16 @@ class MainActivity : ComponentActivity() {
             LaunchedEffect(frame) { mirror.show(frame) }
         }
 
-        suspend fun play(steps: List<Step>) = steps.forEach { s ->
-            delay(s.wait); frame = s.frame
-            if (foreground()) { haptic(view, s.haptic); s.sound?.let { sounds.play(it) } }
+        /** [unlockMs] = quanto prima della fine si può già fare una nuova domanda (il risultato resta acceso). */
+        suspend fun play(steps: List<Step>, unlockMs: Long = 0) {
+            var left = steps.sumOf { it.wait }
+            steps.forEach { s ->
+                delay(s.wait); frame = s.frame; left -= s.wait
+                if (foreground()) { haptic(view, s.haptic); s.sound?.let { sounds.play(it) } }
+                if (unlockMs > 0 && busy && left <= unlockMs) busy = false
+            }
         }
+        var askJob: kotlinx.coroutines.Job? = null
 
         // ARRIVO + ATTESA continua (oracoli); per i dadi la sagoma ferma
         LaunchedEffect(arrival, mode) {
@@ -190,10 +196,11 @@ class MainActivity : ComponentActivity() {
             busy = true; idle = false
             sounds.stopAll()
             val m = mode; val from = frame
-            scope.launch {
+            askJob?.cancel()   // se la domanda precedente sta ancora finendo, si ferma e la nuova ci si aggancia
+            askJob = scope.launch {
                 val steps = if (m == 0) Scripts.closedAsk(ClosedOracle.ask(), italian, Icons.random(this@MainActivity), idleClock)
                             else Icons.random(this@MainActivity)?.let { Scripts.openAsk(it) } ?: emptyList()
-                play(Scripts.hook(from, steps))
+                play(Scripts.hook(from, steps), unlockMs = 750)
                 busy = false
             }
         }
