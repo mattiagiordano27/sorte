@@ -1,14 +1,14 @@
 """Materiale di presentazione: animazioni della Glyph Matrix come sequenze PNG 1080×1080 a 25 fps + audio WAV
 sincronizzato + GIF di anteprima; i simboli come immagini singole.
 Uso: ./gradlew :app:testDebugUnitTest --tests '*PresentazioneTest*' && python3 tools/presentazione.py
-Scrive in presentazione/matrice/."""
+Scrive in _VIDEO/matrice/."""
 import bisect, glob, os, wave
 import numpy as np
 from PIL import Image, ImageDraw, ImageFilter
 
 R = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = f"{R}/app/build/presentazione"
-OUT = f"{R}/presentazione/matrice"
+OUT = f"{R}/_VIDEO/matrice"
 N, FULL, SIZE, FPS = 25, 4095, 1080, 25
 inside = lambda x, y: (x - 12) ** 2 + (y - 12) ** 2 <= 156
 

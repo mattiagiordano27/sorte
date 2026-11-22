@@ -6,7 +6,7 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 R = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-M = f"{R}/presentazione/matrice"
+M = f"{R}/_VIDEO/matrice"
 G = f"{R}/presentazione/grafica"
 W, H = 1080, 1350
 WHITE, GREY, DIM = (242, 242, 242), (140, 140, 140), (85, 85, 85)
